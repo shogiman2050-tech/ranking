@@ -11,19 +11,28 @@ const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
 
 const { d1, r2 } = hostingConfig;
 
+// Cloudflare 本番デプロイ用（scripts/deploy-cloudflare.sh が設定する）。
+// 未設定ならローカル用のプレースホルダーのまま。
+const workerName = process.env.CF_WORKER_NAME || "unlimited-beyond-ranking";
+const d1DatabaseName = process.env.CF_D1_DATABASE_NAME || "unlimited-beyond-ranking-reports";
+const d1DatabaseId =
+  process.env.CF_D1_DATABASE_ID || SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
+
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const managedLinux = readExecutionProfile() === "managed-linux";
 
 const localBindingConfig = {
+  name: workerName,
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
   d1_databases: d1
     ? [
         {
           binding: d1,
-          database_name: "site-creator-d1",
-          database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
+          database_name: d1DatabaseName,
+          database_id: d1DatabaseId,
+          migrations_dir: "drizzle",
         },
       ]
     : [],
