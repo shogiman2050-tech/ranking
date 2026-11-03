@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shadowverse-unlimited-beyond-ranking.jyu785.chatgpt.site/sitemap.xml

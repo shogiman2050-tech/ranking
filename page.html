@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{SITE_NAME}}｜シャドバ ビヨンド アンリミ到達記録</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="{{SITE_URL}}">
+<meta name="theme-color" content="#0b1425">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{SITE_NAME}}">
+<meta property="og:title" content="{{SITE_NAME}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="{{SITE_URL}}">
+<meta property="og:image" content="{{SITE_URL}}og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{SITE_NAME}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+<meta name="twitter:image" content="{{SITE_URL}}og.png">
+<script type="application/ld+json">{{JSONLD}}</script>
+<!--__GA__-->
+<style>
+:root{font-family:Inter,system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#ecf5fa;background:#0b1425;color-scheme:dark;--panel:#15273c;--line:#344e66;--muted:#b9cbd8;--aqua:#6cddd8;--gold:#ffd190}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#102137,#0b1425 55%);min-width:320px}header{padding:23px max(18px,calc((100vw - 1220px)/2));border-bottom:1px solid #315766;background:radial-gradient(circle at 88% 0,#19535f 0,transparent 42%),#14283e}.kicker{color:var(--aqua);font-size:.8rem;font-weight:800;letter-spacing:.12em}h1{font-size:clamp(1.5rem,3.5vw,2.15rem);margin:.35rem 0}.intro{color:var(--muted);margin:0;line-height:1.5}main{max-width:1220px;padding:0 16px 45px;margin:18px auto}.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px;margin:15px 0;box-shadow:0 12px 25px #02060d28}.panel h2{font-size:1.18rem;margin:0 0 13px}.toolbar{display:flex;flex-wrap:wrap;gap:11px;align-items:end;margin:12px 0}.field{display:flex;flex-direction:column;gap:5px;min-width:125px;color:#c8dce6;font-size:.88rem}.field.grow{flex:1;min-width:200px}.field span{line-height:1.3}input,select,button{font:inherit}input,select{border:1px solid #5c7990;background:#0e2033;color:#f2f8fb;border-radius:8px;min-height:41px;padding:8px 10px;max-width:100%}input:focus,select:focus,button:focus-visible{outline:2px solid #82ede3;outline-offset:2px}input::placeholder{color:#9cb3c2}button{cursor:pointer;border:1px solid #66bbc4;background:#1a6874;color:white;border-radius:8px;padding:7px 12px;min-height:39px}button:hover{background:#2a7f89}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:13px 0}.metric{border:1px solid #355465;background:#193247;border-radius:11px;padding:12px;color:#c7dae4;font-size:.84rem}.metric b{display:block;font-size:1.55rem;color:#fff;margin-top:3px;font-variant-numeric:tabular-nums}.small{font-size:.85rem;color:var(--muted);line-height:1.5}.conditions{border-top:1px solid #345064;margin-top:13px;padding-top:8px}.conditions strong{font-size:.9rem;color:var(--gold)}.scroll{overflow:auto;max-height:570px;border:1px solid #344f62;border-radius:9px}table{border-collapse:collapse;width:100%;min-width:810px}th,td{padding:9px 10px;border-bottom:1px solid #31485b;white-space:nowrap;text-align:left;font-size:.87rem}th{position:sticky;top:0;background:#213c53;color:#d4ebef;z-index:1}tbody tr:nth-child(even){background:#1b3044}tbody tr:hover{background:#284257}.num{text-align:right;font-variant-numeric:tabular-nums}.primary{color:var(--gold);font-weight:800}.name{border:0;background:none;min-height:0;padding:0;color:#90ece3;text-decoration:underline;text-underline-offset:3px;font-weight:700;text-align:left}.name:hover{background:none;color:white}#details{background:#10283a;border:1px solid #437083;border-radius:11px;padding:15px;margin-top:13px}#details[hidden]{display:none}.detail-head{display:flex;gap:12px;justify-content:space-between;align-items:center}h3{margin:0;font-size:1.06rem}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.chips span{background:#1d3d50;border:1px solid #52788a;padding:6px 9px;border-radius:7px;font-size:.84rem}#details table{min-width:580px}.average-table{max-height:450px}.average-table table{min-width:600px}.empty{padding:20px;color:var(--muted)}footer{max-width:1220px;margin:0 auto;padding:0 16px 80px;color:var(--muted);font-size:.8rem;line-height:1.6}footer p{margin:0 0 6px}footer a{color:var(--aqua)}
+.player-cell{min-width:180px}.full-periods{display:block;max-width:260px;white-space:normal;line-height:1.35;margin-top:5px;color:var(--gold);font-size:.78rem}.tag{display:inline-block;margin-left:6px;padding:1px 6px;border:1px solid #52788a;border-radius:5px;color:var(--muted);font-size:.72rem;vertical-align:1px}.raw{color:var(--muted);font-size:.76rem;margin-left:5px}
+.share{display:flex;gap:8px;align-items:center;flex-wrap:wrap}#copyNote{color:var(--aqua)}
+.sortrow{display:flex;align-items:center;gap:10px;margin:14px 0 6px;flex-wrap:wrap}.sortlabel{color:#c8dce6;font-size:.82rem;letter-spacing:.06em}
+.sortbar{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.chip{background:#10243a;border:1px solid #3a5870;color:#c8dce6;border-radius:999px;padding:5px 14px;min-height:34px;font-size:.84rem;transition:background .15s,border-color .15s,color .15s,box-shadow .15s}
+.chip:hover{background:#18344c;border-color:#5b8aa5;color:#fff}
+.chip[aria-pressed="true"]{background:linear-gradient(135deg,#ffd190,#f0a95a);border-color:#ffe1b0;color:#1a1408;font-weight:800;box-shadow:0 4px 14px #f0a95a40}
+#ranking th.sortable{padding:0}#ranking th.sortable button{all:unset;box-sizing:border-box;display:flex;justify-content:flex-end;align-items:center;gap:5px;width:100%;padding:9px 10px;cursor:pointer;color:#d4ebef}
+#ranking th.sortable button:hover{color:#fff;background:#2a4a63}#ranking th.sortable button:focus-visible{outline:2px solid #82ede3;outline-offset:-2px}
+#ranking th .arrow{font-size:.7rem;opacity:0;transition:opacity .15s}#ranking th.sortable button:hover .arrow{opacity:.45}
+#ranking th.active button{color:var(--gold);box-shadow:inset 0 -2px 0 var(--gold)}#ranking th.active .arrow{opacity:1}
+#ranking td.primary{background:#ffd1900d}
+.switch{display:inline-flex;align-items:center;gap:10px;cursor:pointer;margin:6px 0 2px;font-size:.88rem;color:#d4ebef}.switch input{position:absolute;opacity:0;width:1px;height:1px}
+.switch .track{width:42px;height:24px;border-radius:999px;background:#2a4256;border:1px solid #4d6c82;position:relative;transition:background .15s;flex:none}.switch .track::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#c8dce6;transition:transform .15s,background .15s}
+.switch input:checked+.track{background:#1a6874;border-color:#6cddd8}.switch input:checked+.track::after{transform:translateX(18px);background:#fff}.switch input:focus-visible+.track{outline:2px solid #82ede3;outline-offset:2px}
+.jump{position:sticky;top:0;z-index:5;background:#0b1425e6;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #2a4458}
+.jump-in{max-width:1220px;margin:0 auto;padding:8px 16px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}.jump-in::-webkit-scrollbar{display:none}
+.jump a{flex:none;color:#c8dce6;text-decoration:none;font-size:.84rem;padding:6px 14px;border-radius:999px;border:1px solid #3a5870;background:#10243a;transition:background .15s,color .15s,border-color .15s}
+.jump a:hover{background:#18344c;color:#fff}.jump a.on{background:linear-gradient(135deg,#ffd190,#f0a95a);border-color:#ffe1b0;color:#1a1408;font-weight:800}
+.panel h2{scroll-margin-top:64px}html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.more{display:block;width:100%;margin-top:10px;background:#10243a;border:1px solid #3a5870;color:var(--aqua);border-radius:10px;min-height:44px}.more:hover{background:#18344c}.more[hidden]{display:none}
+.chart{margin:16px 0 6px}.chart-h{font-size:.98rem;margin:0 0 2px;color:#e6f2f7}
+.bars{display:grid;gap:7px;margin-top:10px}.bar{display:grid;grid-template-columns:76px 1fr 112px;align-items:center;gap:10px;font-size:.86rem;border-radius:6px;padding:2px 0;cursor:default}
+.bar:hover .fill,.bar:focus-visible .fill{background:#a4f4ef}.bar:focus-visible{outline:2px solid #82ede3;outline-offset:2px}
+.track{height:18px;background:#0f2234;border-radius:4px;position:relative;overflow:hidden}.fill{position:absolute;inset:0 auto 0 0;background:#6cddd8;border-radius:0 4px 4px 0;transition:width .25s}
+.bar .v{font-variant-numeric:tabular-nums;color:#f2f8fb;font-weight:700}.bar .v small{color:var(--muted);font-weight:400;margin-left:6px}
+.axis{display:grid;grid-template-columns:76px 1fr 112px;gap:10px;color:var(--muted);font-size:.72rem}.axis .ticks{position:relative;height:1.2em}.axis .ticks span{position:absolute;transform:translateX(-50%)}.axis .ticks span:first-child{transform:none}
+.heat{display:grid;gap:3px;margin-top:10px;font-size:.8rem}.heat .hd{color:var(--muted);text-align:center;font-size:.76rem;padding:2px 0}.heat .rl{color:#c8dce6;display:flex;align-items:center;font-size:.8rem;white-space:nowrap;overflow:hidden}
+.cell{border-radius:4px;min-height:36px;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;font-weight:700;cursor:default}.cell.none{background:#0f2234;color:#5d778a;font-weight:400}
+.cell:hover,.cell:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.scale{display:flex;align-items:center;gap:8px;margin-top:9px;color:var(--muted);font-size:.74rem}.scale i{flex:0 1 160px;height:8px;border-radius:4px;background:linear-gradient(90deg,#16374a,#3f9a9c,#a4f4ef)}
+.short{display:none}
+.tip{position:fixed;z-index:20;pointer-events:none;background:#08131f;border:1px solid #4d7a90;border-radius:8px;padding:8px 11px;font-size:.8rem;line-height:1.55;color:#ecf5fa;box-shadow:0 8px 22px #000a;max-width:240px}.tip b{color:var(--gold)}.tip[hidden]{display:none}
+.totop{position:fixed;right:16px;bottom:18px;z-index:6;width:46px;height:46px;border-radius:50%;padding:0;font-size:1rem;background:#1a6874;border:1px solid #6cddd8;box-shadow:0 6px 18px #02060d80}.totop[hidden]{display:none}
+#scoreTable{min-width:600px}#scoreTable td.primary{font-size:.95rem}.up{color:#7fe3a0}.flat{color:var(--muted)}
+#scoreTable tr.p1 td:first-child{color:#ffd190;font-weight:800}#scoreTable tr.p2 td:first-child{color:#dfe7ee;font-weight:800}#scoreTable tr.p3 td:first-child{color:#e8a87c;font-weight:800}
+.howto{margin-top:12px;color:var(--muted);font-size:.85rem;line-height:1.7}.howto summary{cursor:pointer;color:var(--aqua);font-weight:700}.howto code{background:#0e2033;border:1px solid #344e66;border-radius:5px;padding:1px 6px;color:#f2f8fb;font-size:.82rem}.howto ul{margin:6px 0;padding-left:1.3em}
+@media(max-width:650px){header{padding:18px 13px}main{padding:0 9px 25px;margin:10px auto}.panel{padding:13px;border-radius:11px}.metrics{gap:5px}.metric{padding:8px;font-size:.74rem}.metric b{font-size:1.2rem}.toolbar .field{flex:1;min-width:130px}.field.grow{min-width:100%}input,select{width:100%}th,td{font-size:.82rem;padding:8px}.player-cell{min-width:155px}.full-periods{max-width:none}
+#rankWrap{max-height:none;border:0;overflow:visible}#ranking{min-width:0}#ranking thead{display:none}#ranking tbody,#ranking tr{display:block}#ranking tr{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 10px;padding:11px 12px;margin-bottom:8px;border:1px solid #355465;border-radius:10px;background:#193247}#ranking tbody tr:nth-child(even){background:#193247}#ranking td{display:block;border:0;padding:0;white-space:normal;text-align:left}#ranking td[data-label]::before{content:attr(data-label);display:block;color:var(--muted);font-size:.7rem;font-weight:400}#ranking td.order{grid-column:1;font-size:1.05rem;font-weight:800;color:var(--aqua)}#ranking td.order::before{display:none}#ranking td.player-cell{grid-column:2/4;min-width:0}#ranking td.empty{grid-column:1/-1}
+.sortbar{flex:1 0 100%;order:3;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch}.sortbar::-webkit-scrollbar{display:none}.chip{flex:none}
+#ranking td.primary{background:none;order:-1;grid-column:1/-1;display:flex;align-items:baseline;gap:8px;font-size:1.25rem;padding-bottom:4px;border-bottom:1px solid #2f4b60;margin-bottom:2px}#ranking td.primary::before{font-size:.72rem;color:var(--gold)}
+#ranking td.order{order:-3}#ranking td.player-cell{order:-2}
+#scoreTable{min-width:0}.bar,.axis{grid-template-columns:44px 1fr 74px;gap:7px}.bar .v small{display:block;margin:0}.long{display:none}.short{display:inline}.heat{gap:2px;font-size:.72rem}.cell{min-height:32px}.heat .rl{font-size:.72rem}#scoreTable th:nth-child(n+5),#scoreTable td:nth-child(n+5){display:none}#scoreTable td.empty{display:table-cell;white-space:normal}#scoreTable th,#scoreTable td{padding:8px 6px}#scoreTable .player-cell{min-width:0;width:100%;max-width:0;white-space:normal;overflow-wrap:anywhere}#scoreTable .name{text-align:left}}
+.sort-control{flex:1 1 100%;min-width:0;font-size:.88rem;color:#c8dce6}.sort-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.sort-chip{border-radius:999px;min-height:44px;padding:9px 15px;background:#102438;border:1px solid #58758b;color:#cbdde7;font-weight:600}.sort-chip:hover{background:#244557}.sort-chip[aria-pressed="true"]{background:#78e3d8;border-color:#78e3d8;color:#08252c;box-shadow:0 0 0 1px #78e3d8;font-weight:800}.sort-chip[aria-pressed="true"]::before{content:'✓ ';} @media(max-width:650px){.sort-chips{gap:7px}.sort-chip{font-size:.82rem;padding:8px 12px}}
+
+@media(max-width:650px){.sortbar{flex-wrap:wrap;overflow:visible}.chip{min-height:44px}#ranking td.full-periods{grid-column:1/-1;overflow-wrap:anywhere}.name{overflow-wrap:anywhere}#details table,.average-table table{min-width:0}#details thead,.average-table thead{display:none}#details tr,.average-table tr{display:block;padding:10px;border-bottom:1px solid var(--line)}#details td,.average-table td{display:flex;justify-content:space-between;gap:12px;white-space:normal;text-align:right;border:0}#details td:before,.average-table td:before{content:attr(data-label);color:var(--muted);text-align:left}}
+</style></head><body>
+<noscript><p style="padding:12px 16px;background:#5a2a2a;margin:0">このページの表示にはJavaScriptが必要です。</p></noscript>
+<header><div class="kicker">SHADOWVERSE WORLDS BEYOND · UNLIMITED</div><h1>ビヨンドランキング</h1><p class="intro">クラス別ランキングの到達記録から、プレイヤーの最高CRと達成回数を集計。</p></header>
+<nav class="jump" aria-label="ページ内リンク"><div class="jump-in"><a href="#filterTitle">条件</a><a href="#rankingTitle">プレイヤー別</a><a href="#scoreTitle">総合スコア</a><a href="#averageTitle">平均CR</a></div></nav>
+<main>
+<section class="panel" aria-labelledby="filterTitle"><h2 id="filterTitle">対象を選ぶ</h2><div class="toolbar">
+<label class="field"><span>開始期間</span><select id="fromSeason"></select></label>
+<label class="field"><span>終了期間</span><select id="toSeason"></select></label>
+<label class="field"><span>クラス</span><select id="classFilter"><option value="">全クラス</option></select></label>
+<label class="field grow"><span>プレイヤー名</span><input id="search" type="search" placeholder="名前で検索（全角半角・かなカナは区別しません）"></label></div>
+<div class="metrics"><div class="metric">到達記録<b id="recordCount">—</b></div><div class="metric">プレイヤー<b id="playerCount">—</b></div><div class="metric">最高CR<b id="topCR">—</b></div></div>
+<div class="share"><button id="copyLink" type="button">この条件のリンクをコピー</button><span id="copyNote" class="small" role="status"></span></div></section>
+<section class="panel" aria-labelledby="rankingTitle"><h2 id="rankingTitle">プレイヤー別ランキング</h2><div class="conditions"><strong>達成条件</strong><div class="toolbar">
+<label class="field"><span>順位：N位以内</span><input id="rankThreshold" type="number" min="1" step="1" value="10"></label>
+<label class="field"><span>CR：X以上</span><input id="crThreshold" type="number" min="1850" step="1" value="1900"></label>
+<label class="field"><span>絞り込み</span><select id="matchFilter"><option value="all">全プレイヤー</option><option value="rank">順位条件を達成</option><option value="cr">CR条件を達成</option><option value="both">両方を同時に達成</option></select></label>
+</div></div>
+<div class="sortrow"><span class="sortlabel">並べ替え</span><div class="sortbar" id="sortbar" role="group" aria-label="並べ替えの基準"></div><input type="hidden" id="sort" value="cr"></div>
+<p class="small">全ビヨ＝同じ期間（前半・後半）に7クラスすべてでビヨンド到達。期間の範囲だけを反映し、クラスの絞り込みには左右されません。順位は並べ替えの基準が同じなら同順位です。</p>
+<p class="small" id="caption" role="status"></p><div class="scroll" id="rankWrap"><table id="ranking"><thead><tr></tr></thead><tbody></tbody></table></div><button type="button" id="more" class="more" hidden></button>
+<div id="details" hidden><div class="detail-head"><h3 id="detailTitle"></h3><button id="closeDetails" type="button">閉じる</button></div><div class="chips" id="detailStats"></div><p class="small" id="fullBeyondPeriods"></p><div class="scroll"><table><thead><tr><th>環境</th><th>期間</th><th>クラス</th><th class="num">CR</th><th class="num">順位</th><th>条件達成</th></tr></thead><tbody id="detailRows"></tbody></table></div></div></section>
+<section class="panel" aria-labelledby="scoreTitle"><h2 id="scoreTitle">総合スコアランキング</h2>
+<p class="small">選んだ期間・クラスの到達記録を、ゲーム内順位からスコアにして合計します。上の期間とクラスの選択が反映されます。</p>
+<div class="sortrow"><span class="sortlabel">計算モデル</span><div class="sortbar" id="modelbar" role="group" aria-label="計算モデル"></div><input type="hidden" id="model" value="relax"></div>
+<p class="small" id="modelNote"></p>
+<p class="small" id="scoreCaption" role="status"></p>
+<div class="scroll"><table id="scoreTable"><thead><tr><th>順位</th><th>プレイヤー</th><th class="num primary">総合スコア</th><th class="num">前回比</th><th class="num">記録数</th><th class="num">レート合計</th><th class="num">最高CR</th></tr></thead><tbody></tbody></table></div>
+<details class="howto"><summary>計算方法</summary><div id="howto"></div></details></section>
+<section class="panel" aria-labelledby="averageTitle"><h2 id="averageTitle">環境・クラス別の平均CR</h2><p class="small">選んだ期間とクラスを反映。登録された到達者（CR1850以上）のCRを平均しています。</p>
+<div class="chart"><h3 class="chart-h">クラス別の平均CR</h3><p class="small" id="barsSub"></p><div id="avgBars" class="bars"></div></div>
+<div class="chart"><h3 class="chart-h">期間 × クラス</h3><p class="small">明るいほど平均CRが高い。マスに触れると人数と最高CRが出ます。</p><div id="heat" class="heat"></div><div class="scale" aria-hidden="true"><span id="scaleLo"></span><i></i><span id="scaleHi"></span></div></div>
+<details class="howto"><summary>表で見る</summary><div class="toolbar"><div class="sort-control"><span id="averageSortLabel">クラスの並べ替え</span><select id="averageSort" hidden aria-hidden="true" tabindex="-1"><option value="period">環境の順</option><option value="average">平均CRが高い順</option><option value="count">ビヨンド人数が多い順</option></select><div class="sort-chips" id="averageSortChips" role="group" aria-labelledby="averageSortLabel"></div></div></div><div class="scroll average-table"><table id="averages"><thead><tr><th>環境</th><th>期間</th><th>クラス</th><th class="num">ビヨンド人数</th><th class="num">平均CR</th><th class="num">最高CR</th></tr></thead><tbody></tbody></table></div></details></section>
+</main><footer><p><span id="coverage"></span>／アンリミテッド。動画で確認できた到達者（CR1850以上）の記録です。最終更新：{{UPDATED}}</p>
+<p>確認済みの別名を統合し、「あ」も含め同名を統合しています。同じ期間・クラスに複数記録がある場合、個人の回数・スコアは最高CRの記録を1回分として集計し、詳細とクラス平均には全記録を残します。<!--__REPORT__--></p>
+<p>当サイトは個人が運営する非公式のファンサイトで、株式会社Cygamesとは関係ありません。「シャドウバース ワールズビヨンド」に関する権利は株式会社Cygamesに帰属します。<!--__GA_NOTE__--></p></footer>
+<div id="tip" class="tip" role="tooltip" hidden></div>
+<button type="button" id="toTop" class="totop" aria-label="ページの先頭へ" hidden>▲</button>
+<script>
+const seed=/*__DATA__*/;
+const SEASON_ORDER=/*__SEASONS__*/;
+const CLASS_ORDER=['エルフ','ロイヤル','ウィッチ','ドラゴン','ナイトメア','ビショップ','ネメシス'];
+const $=s=>document.querySelector(s);
+const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const periodOf=s=>s.endsWith('前半')?'前半':'後半';
+const environmentOf=s=>s.slice(0,-3);
+const norm=s=>String(s).normalize('NFKC').toLowerCase().replace(/\s+/g,'').replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60));
+const pkey=r=>r.personKey||r.name;
+const DATA=seed;let active='';const PAGE=50;let limit=PAGE;
+
+// 選択肢をデータから作る
+const seasonOpts=SEASON_ORDER.map((s,i)=>`<option value="${i}">${escapeHTML(s.replace("・アナテマ", "").replace("・オブ・デスティニー", "").replace("・レヴナント", ""))}</option>`).join('');
+$('#fromSeason').innerHTML=seasonOpts;$('#toSeason').innerHTML=seasonOpts;$('#toSeason').value=String(SEASON_ORDER.length-1);
+$('#classFilter').insertAdjacentHTML('beforeend',CLASS_ORDER.map(c=>`<option>${escapeHTML(c)}</option>`).join(''));
+$('#coverage').textContent=`対象：${SEASON_ORDER[0].replace(' ','')}から${SEASON_ORDER[SEASON_ORDER.length-1].replace(' ','')}`;
+
+// URLの状態 ⇔ 画面
+const PARAMS={from:'fromSeason',to:'toSeason',class:'classFilter',q:'search',n:'rankThreshold',x:'crThreshold',filter:'matchFilter',sort:'sort',model:'model',avg:'averageSort'};
+function loadURL(){const u=new URLSearchParams(location.search);for(const[k,id]of Object.entries(PARAMS)){if(!u.has(k))continue;const el=$('#'+id),v=u.get(k);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===v))continue;if(id==='sort'&&!['cr','count','fullCount','bestRank','classes','rankHits','crHits','bothHits'].includes(v))continue;if(id==='model'&&!['relax','inverse','log'].includes(v))continue;el.value=v}if(u.has('p'))active=u.get('p')}
+function saveURL(){const u=new URLSearchParams();for(const[k,id]of Object.entries(PARAMS)){const el=$('#'+id),def=el.dataset.default;if(el.value!==def&&el.value!=='')u.set(k,el.value)}if(active)u.set('p',active);const qs=u.toString();try{history.replaceState(null,'',qs?'?'+qs:location.pathname)}catch(e){}}
+for(const id of Object.values(PARAMS))$('#'+id).dataset.default=$('#'+id).value;
+
+function scoped(){const from=Number($('#fromSeason').value),to=Number($('#toSeason').value),c=$('#classFilter').value;return DATA.filter(r=>{const i=SEASON_ORDER.indexOf(r.season);return i>=from&&i<=to&&(!c||r.className===c)})}
+function thresholds(){return {n:Math.max(1,Math.floor(Number($('#rankThreshold').value)||10)),x:Math.max(1850,Math.floor(Number($('#crThreshold').value)||1900))}}
+function rankHit(r,n){return Number.isInteger(r.rank)&&r.rank>0&&r.rank<=n}
+function fullBeyondPeriods(){const from=Number($('#fromSeason').value),to=Number($('#toSeason').value),byPlayer=new Map();for(const r of DATA){const i=SEASON_ORDER.indexOf(r.season);if(i<from||i>to)continue;const key=pkey(r);if(!byPlayer.has(key))byPlayer.set(key,new Map());const periods=byPlayer.get(key);if(!periods.has(r.season))periods.set(r.season,new Set());periods.get(r.season).add(r.className)}return new Map([...byPlayer].map(([key,periods])=>[key,SEASON_ORDER.filter(s=>periods.get(s)?.size===CLASS_ORDER.length)]))}
+function achievementRows(rows){const slots=new Map();for(const r of rows){const key=JSON.stringify([r.season,r.className,pkey(r)]),old=slots.get(key);if(!old||r.cr>old.cr||(r.cr===old.cr&&(r.rank||Infinity)<(old.rank||Infinity)))slots.set(key,r)}return [...slots.values()]}
+function summarize(rows,n,x,fullPeriods){const m=new Map();for(const r of achievementRows(rows)){const k=pkey(r);let a=m.get(k);if(!a){a={key:k,name:r.name,separated:!!r.separated,count:0,max:0,bestRank:Infinity,classes:new Set(),rankHits:0,crHits:0,bothHits:0,fullPeriods:fullPeriods.get(k)||[],rows:[],search:new Set([norm(r.name)])};m.set(k,a)}if(r.rawName)a.search.add(norm(r.rawName));const rh=rankHit(r,n),ch=r.cr>=x;a.count++;a.max=Math.max(a.max,r.cr);if(r.rank>0)a.bestRank=Math.min(a.bestRank,r.rank);a.classes.add(r.className);a.rankHits+=+rh;a.crHits+=+ch;a.bothHits+=+(rh&&ch);a.rows.push(r)}for(const r of rows){const a=m.get(pkey(r));if(a&&r.rawName)a.search.add(norm(r.rawName))}for(const a of m.values())a.rows=rows.filter(r=>pkey(r)===a.key);return [...m.values()]}
+const rankText=v=>Number.isFinite(v)&&v>0?v+'位':'—';
+const diff=(a,b)=>a===b?0:a<b?-1:1; // Infinityでも安全な比較
+
+function initSortChips(){
+ for(const id of ['averageSort']){
+  const select=$('#'+id),group=$('#'+id+'Chips');
+  group.innerHTML=[...select.options].map(o=>`<button type="button" class="sort-chip" data-sort-value="${escapeHTML(o.value)}" aria-pressed="false">${escapeHTML(o.textContent)}</button>`).join('');
+  group.addEventListener('click',e=>{const b=e.target.closest('[data-sort-value]');if(!b)return;select.value=b.dataset.sortValue;render()});
+ }
+}
+function syncSortChips(n,x){
+ const labels={rankHits:`${n}位以内の回数順`,crHits:`CR${x}以上の回数順`};
+ for(const id of ['averageSort'])for(const b of $('#'+id+'Chips').querySelectorAll('button')){
+  b.setAttribute('aria-pressed',String(b.dataset.sortValue===$('#'+id).value));
+  if(id==='sort'&&labels[b.dataset.sortValue])b.textContent=labels[b.dataset.sortValue];
+ }
+}
+function render(){const rows=scoped(),{n,x}=thresholds(),q=norm($('#search').value.trim()),filter=$('#matchFilter').value,sort=$('#sort').value;
+ $('#recordCount').textContent=rows.length.toLocaleString('ja-JP');$('#playerCount').textContent=new Set(rows.map(pkey)).size.toLocaleString('ja-JP');$('#topCR').textContent=rows.length?Math.max(...rows.map(r=>r.cr)):'—';
+ const metrics=[['cr','最高CR',p=>p.max,p=>p.max],['count','ビヨンド数',p=>p.count,p=>p.count],['fullCount','全ビヨ',p=>p.fullPeriods.length,p=>p.fullPeriods.length],['bestRank','最高順位',p=>rankText(p.bestRank),p=>-p.bestRank],['classes','到達クラス',p=>p.classes.size,p=>p.classes.size],['rankHits',n+'位以内',p=>p.rankHits,p=>p.rankHits],['crHits','CR'+x+'+',p=>p.crHits,p=>p.crHits],['bothHits','両方達成',p=>p.bothHits,p=>p.bothHits]];
+ const primary=metrics.find(m=>m[0]===sort)||metrics[0],cols=metrics;
+ $('#sortbar').innerHTML=metrics.map(m=>`<button type="button" class="chip" data-sort="${m[0]}" aria-pressed="${m===primary}">${escapeHTML(m[1])}</button>`).join('');
+ $('#ranking thead tr').innerHTML='<th>順位</th><th>プレイヤー</th>'+cols.map(m=>{const on=m===primary;return `<th class="num sortable${on?' active':''}" aria-sort="${on?(sort==='bestRank'?'ascending':'descending'):'none'}"><button type="button" data-sort="${m[0]}">${escapeHTML(m[1])}<span class="arrow" aria-hidden="true">▼</span></button></th>`}).join('')+'<th>全ビヨ達成環境</th>';
+ let players=summarize(rows,n,x,fullBeyondPeriods());
+ if(q)players=players.filter(p=>[...p.search].some(s=>s.includes(q)));
+ if(filter==='rank')players=players.filter(p=>p.rankHits);if(filter==='cr')players=players.filter(p=>p.crHits);if(filter==='both')players=players.filter(p=>p.bothHits);
+ const score=primary[3],tie=sort==='cr'?(p=>p.count):(p=>p.max);
+players.sort((a,b)=>diff(score(b),score(a))||diff(tie(b),tie(a))||a.name.localeCompare(b.name,'ja'));
+ // 同順位（基準の値が同じなら同じ順位：1,1,3…）
+ const scores=players.map(score).sort((a,b)=>diff(b,a)),firstAt=new Map();scores.forEach((v,i)=>{if(!firstAt.has(v))firstAt.set(v,i+1)});players.forEach(p=>p.place=firstAt.get(score(p)));
+ $('#caption').textContent=Number($('#fromSeason').value)>Number($('#toSeason').value)?'開始期間が終了期間より後です。期間を選び直してください。':`該当 ${players.length} 人。名前を押すと、環境ごとの記録を表示します。`;
+ $('#ranking tbody').innerHTML=players.length?players.slice(0,limit).map(p=>`<tr><td class="order">${p.place}</td><td class="player-cell"><button class="name" type="button" data-key="${escapeHTML(encodeURIComponent(p.key))}">${escapeHTML(p.name)}</button></td>${cols.map(m=>`<td class="num${m===primary?' primary':''}" data-label="${escapeHTML(m[1])}">${escapeHTML(m[2](p))}</td>`).join('')}<td class="full-periods" data-label="全ビヨ達成環境">${escapeHTML(p.fullPeriods.join('、')||'—')}</td></tr>`).join(''):'<tr><td class="empty" colspan="11">該当するプレイヤーがいません。</td></tr>';
+ const rest=players.length-limit;$('#more').hidden=rest<=0;$('#more').textContent=`さらに${Math.min(PAGE,rest)}人を表示（残り${rest}人）`;
+ const selected=players.find(p=>p.key===active);
+ if(!selected){$('#details').hidden=true}else{const p=selected;$('#details').hidden=false;$('#detailTitle').textContent=p.name+' の記録';
+  $('#detailStats').innerHTML=[`ビヨンド ${p.count}回`,`全ビヨ ${p.fullPeriods.length}回`,`最高CR ${p.max}`,`最高順位 ${rankText(p.bestRank)}`,`${n}位以内 ${p.rankHits}回`,`CR${x}以上 ${p.crHits}回`,`両方 ${p.bothHits}回`].map(t=>`<span>${escapeHTML(t)}</span>`).join('');
+  $('#fullBeyondPeriods').textContent='全ビヨ達成：'+(p.fullPeriods.map(s=>environmentOf(s)+' '+periodOf(s)).join('、')||'なし');
+  $('#detailRows').innerHTML=p.rows.slice().sort((a,b)=>SEASON_ORDER.indexOf(a.season)-SEASON_ORDER.indexOf(b.season)||CLASS_ORDER.indexOf(a.className)-CLASS_ORDER.indexOf(b.className)).map(r=>{const rh=rankHit(r,n),ch=r.cr>=x;return `<tr><td>${escapeHTML(environmentOf(r.season))}</td><td>${periodOf(r.season)}</td><td>${escapeHTML(r.className)}${r.rawName?`<span class="raw">表記：${escapeHTML(r.rawName)}</span>`:''}</td><td class="num">${r.cr}</td><td class="num">${rankText(r.rank)}</td><td>${rh&&ch?'両方':rh?'順位のみ':ch?'CRのみ':'—'}</td></tr>`}).join('')}
+ const averages=new Map();for(const r of rows){const k=r.season+'\u001f'+r.className,v=averages.get(k)||{season:r.season,cls:r.className,count:0,sum:0,max:0};v.count++;v.sum+=r.cr;v.max=Math.max(v.max,r.cr);averages.set(k,v)}
+ const byPeriod=(a,b)=>SEASON_ORDER.indexOf(a.season)-SEASON_ORDER.indexOf(b.season)||CLASS_ORDER.indexOf(a.cls)-CLASS_ORDER.indexOf(b.cls),averageSort=$('#averageSort').value;
+ const averageRows=[...averages.values()].sort((a,b)=>averageSort==='average'?(b.sum/b.count-a.sum/a.count||byPeriod(a,b)):averageSort==='count'?(b.count-a.count||byPeriod(a,b)):byPeriod(a,b));
+ $('#averages tbody').innerHTML=averageRows.map(v=>`<tr><td>${escapeHTML(environmentOf(v.season))}</td><td>${periodOf(v.season)}</td><td>${escapeHTML(v.cls)}</td><td class="num">${v.count}</td><td class="num primary">${(v.sum/v.count).toFixed(1)}</td><td class="num">${v.max}</td></tr>`).join('')||'<tr><td class="empty" colspan="6">対象の記録がありません。</td></tr>';
+ syncSortChips(n,x);
+ document.querySelectorAll('#details table,#averages').forEach(t=>{const labels=[...t.querySelectorAll('th')].map(h=>h.textContent);t.querySelectorAll('tbody tr').forEach(tr=>[...tr.children].forEach((td,i)=>td.dataset.label=labels[i]||''))});
+ renderAverages(rows);
+ renderScore();
+ saveURL();
+}
+for(const id of Object.values(PARAMS))$('#'+id).addEventListener('input',()=>{limit=PAGE;render()});
+$('#more').addEventListener('click',()=>{limit+=PAGE;render()});
+$('#ranking').addEventListener('click',e=>{const b=e.target.closest('[data-key]');if(!b)return;active=decodeURIComponent(b.dataset.key);render();$('#details').scrollIntoView({block:'nearest',behavior:'smooth'})});
+// ===== 総合スコア（式はシャドラボ準拠） =====
+const MODELS={
+ relax:{label:'緩和モデル',desc:'順位差を緩やかに評価（上位偏重を軽減）',formula:'100 ÷ 順位^0.3',f:r=>100/Math.pow(r,0.3)},
+ inverse:{label:'逆数モデル',desc:'順位に反比例。1位と2位の差が最も大きいシビアな評価',formula:'100 ÷ 順位',f:r=>100/r},
+ log:{label:'対数モデル',desc:'順位が上がるほど点数の上がり幅が増える（バランス型）',formula:'(log10(101) − log10(順位)) × 50',f:r=>Math.max(0,(Math.log10(101)-Math.log10(r))*50)}
+};
+const RANK_CAP=100; // 101位以下は100位として計算
+function scoreTotals(rows,model){const f=MODELS[model].f,m=new Map();for(const r of achievementRows(rows)){if(!Number.isInteger(r.rank)||r.rank<1)continue;const k=pkey(r);let a=m.get(k);if(!a){a={key:k,name:r.name,search:new Set(),separated:!!r.separated,score:0,count:0,crSum:0,max:0};m.set(k,a)}a.search.add(norm(r.name));if(r.rawName)a.search.add(norm(r.rawName));a.score+=f(Math.min(r.rank,RANK_CAP));a.count++;a.crSum+=r.cr;a.max=Math.max(a.max,r.cr)}return m}
+function renderScore(){
+ const model=MODELS[$('#model').value]?$('#model').value:'relax',M=MODELS[model];
+ $('#modelbar').innerHTML=Object.entries(MODELS).map(([k,v])=>`<button type="button" class="chip" data-model="${k}" aria-pressed="${k===model}">${v.label}</button>`).join('');
+ $('#modelNote').innerHTML=`<b style="color:var(--gold)">${escapeHTML(M.desc)}</b>　計算式：<code>${escapeHTML(M.formula)}</code>`;
+ const from=Number($('#fromSeason').value),to=Number($('#toSeason').value),c=$('#classFilter').value;
+ const inRange=(lo,hi)=>DATA.filter(r=>{const i=SEASON_ORDER.indexOf(r.season);return i>=lo&&i<=hi&&(!c||r.className===c)});
+ const now=scoreTotals(inRange(from,to),model),prev=to>from?scoreTotals(inRange(from,to-1),model):null;
+ let list=[...now.values()].sort((a,b)=>b.score-a.score||b.max-a.max||a.name.localeCompare(b.name,'ja'));
+ list.forEach((p,i)=>{p.place=i>0&&Math.abs(p.score-list[i-1].score)<1e-9?list[i-1].place:i+1;p.delta=p.score-(prev?.get(p.key)?.score||0)});
+ const q=norm($('#search').value.trim());const shown=q?list.filter(p=>[...p.search].some(s=>s.includes(q))):list;
+ $('#scoreCaption').textContent=from>to?'':`${list.length}人を集計${prev?`。前回比は「${SEASON_ORDER[to].replace(' ','')}」で増えた点数`:'。前回比は期間を2つ以上選ぶと表示'}`;
+ $('#scoreTable tbody').innerHTML=shown.length?shown.slice(0,300).map(p=>`<tr class="${p.place<=3?'p'+p.place:''}"><td>${p.place}</td><td class="player-cell"><button class="name" type="button" data-key="${escapeHTML(encodeURIComponent(p.key))}">${escapeHTML(p.name)}</button></td><td class="num primary">${p.score.toFixed(2)}</td><td class="num ${prev&&p.delta>0.005?'up':'flat'}">${prev?'+'+p.delta.toFixed(2):'—'}</td><td class="num">${p.count}</td><td class="num">${p.crSum.toLocaleString('ja-JP')}</td><td class="num">${p.max}</td></tr>`).join('')+(shown.length>300?`<tr><td class="empty" colspan="7">上位300人まで表示しています。名前で検索すると全員を探せます。</td></tr>`:''):'<tr><td class="empty" colspan="7">該当するプレイヤーがいません。</td></tr>';
+ $('#howto').innerHTML=`<p>到達記録1件ごとに、その枠（期間×クラス）でのゲーム内順位から点数を出し、全部を合計します。同じCRで同順位の人は同じ点数です。</p>
+<ul><li>緩和モデル：<code>100 ÷ 順位^0.3</code></li><li>逆数モデル：<code>100 ÷ 順位</code></li><li>対数モデル：<code>(log10(101) − log10(順位)) × 50</code></li></ul>
+<p>選択したモデルで記録ごとの点数を計算します。</p>
+<p>アンリミは100位を超える枠もあるため、101位以下は100位として計算します（どのモデルでも共通）。</p>`;
+}
+$('#modelbar').addEventListener('click',e=>{const b=e.target.closest('[data-model]');if(b){$('#model').value=b.dataset.model;render()}});
+$('#scoreTable').addEventListener('click',e=>{const b=e.target.closest('[data-key]');if(!b)return;$('#matchFilter').value='all';active=decodeURIComponent(b.dataset.key);render();$('#details').scrollIntoView({block:'nearest',behavior:'smooth'})});
+// ===== 平均CRのグラフ =====
+const SHORT_CLASS={'エルフ':'エルフ','ロイヤル':'ロイ','ウィッチ':'ウィ','ドラゴン':'ドラ','ナイトメア':'ナイト','ビショップ':'ビショ','ネメシス':'ネメ'};
+const shortSeason=s=>environmentOf(s).replace(/[・ ].*$/,'').slice(0,3)+periodOf(s).slice(0,1);
+const lerp=(a,b,t)=>a+(b-a)*t;
+function heatColor(t){const stops=[[22,55,74],[63,154,156],[164,244,239]],u=t<.5?t*2:(t-.5)*2,[a,b]=t<.5?[stops[0],stops[1]]:[stops[1],stops[2]];return `rgb(${a.map((v,i)=>Math.round(lerp(v,b[i],u))).join(',')})`}
+function renderAverages(rows){
+ const from=Number($('#fromSeason').value),to=Number($('#toSeason').value),c=$('#classFilter').value;
+ const classes=c?[c]:CLASS_ORDER,seasons=SEASON_ORDER.slice(from,to+1);
+ // 横棒：クラス別（期間をまとめて）
+ const byClass=classes.map(cls=>{const rs=rows.filter(r=>r.className===cls);return {cls,count:rs.length,avg:rs.length?rs.reduce((t,r)=>t+r.cr,0)/rs.length:null,max:rs.length?Math.max(...rs.map(r=>r.cr)):null}}).filter(v=>v.count).sort((a,b)=>b.avg-a.avg);
+ const hi=Math.ceil((Math.max(1855,...byClass.map(v=>v.avg))-1850)/10)*10+1850;
+ $('#barsSub').textContent=seasons.length?`${seasons.length===1?SEASON_ORDER[from]:SEASON_ORDER[from]+' 〜 '+SEASON_ORDER[to]} の到達者。棒はビヨンドライン（CR1850）からの高さ。`:'';
+ $('#avgBars').innerHTML=byClass.length?byClass.map(v=>{const tip=`<b>${escapeHTML(v.cls)}</b><br>平均CR ${v.avg.toFixed(1)}<br>到達 延べ${v.count}件<br>最高CR ${v.max}`;return `<div class="bar" tabindex="0" data-tip="${escapeHTML(tip)}" aria-label="${escapeHTML(v.cls)} 平均CR ${v.avg.toFixed(1)}、延べ${v.count}件"><span><span class="long">${escapeHTML(v.cls)}</span><span class="short">${escapeHTML(SHORT_CLASS[v.cls]||v.cls)}</span></span><span class="track"><span class="fill" style="width:${Math.max(1.5,(v.avg-1850)/(hi-1850)*100)}%"></span></span><span class="v">${v.avg.toFixed(1)}<small>延べ${v.count}件</small></span></div>`}).join('')+`<div class="axis"><span></span><span class="ticks">${(()=>{const narrow=innerWidth<650,step=hi-1850<=30&&!narrow?5:hi-1850<=60?10:20,out=[];for(let t=1850;t<=hi;t+=step)out.push(`<span style="left:${(t-1850)/(hi-1850)*100}%">${t}</span>`);return out.join('')})()}</span><span></span></div>`:'<p class="empty">対象の記録がありません。</p>';
+ // ヒートマップ：期間 × クラス
+ const cell=new Map();for(const r of rows){const k=r.season+'\u001f'+r.className,v=cell.get(k)||{n:0,sum:0,max:0};v.n++;v.sum+=r.cr;v.max=Math.max(v.max,r.cr);cell.set(k,v)}
+ const avgs=[...cell.values()].map(v=>v.sum/v.n),lo=Math.min(...avgs),top=Math.max(...avgs),span=top-lo||1;
+ $('#scaleLo').textContent=avgs.length?lo.toFixed(1):'';$('#scaleHi').textContent=avgs.length?top.toFixed(1):'';
+ $('#heat').style.gridTemplateColumns=`minmax(48px,auto) repeat(${classes.length},minmax(0,1fr))`;
+ $('#heat').innerHTML=seasons.length&&avgs.length?'<span></span>'+classes.map(cls=>`<span class="hd"><span class="long">${escapeHTML(cls)}</span><span class="short">${escapeHTML(SHORT_CLASS[cls]||cls)}</span></span>`).join('')+seasons.map(se=>`<span class="rl"><span class="long">${escapeHTML(environmentOf(se))} ${periodOf(se)}</span><span class="short">${escapeHTML(shortSeason(se))}</span></span>`+classes.map(cls=>{const v=cell.get(se+'\u001f'+cls);if(!v)return '<span class="cell none" aria-label="記録なし">—</span>';const a=v.sum/v.n,t=(a-lo)/span;const tip=`<b>${escapeHTML(environmentOf(se))} ${periodOf(se)}・${escapeHTML(cls)}</b><br>平均CR ${a.toFixed(1)}<br>到達 ${v.n}人<br>最高CR ${v.max}`;return `<span class="cell" tabindex="0" style="background:${heatColor(t)};color:${t>.55?'#08202a':'#eaf6fa'}" data-tip="${escapeHTML(tip)}" aria-label="${escapeHTML(se)} ${escapeHTML(cls)} 平均CR ${a.toFixed(1)}、${v.n}人">${Math.round(a)}</span>`}).join('')).join(''):'<p class="empty">対象の記録がありません。</p>';
+}
+// ツールチップ（マウス・タップ・キーボード共通）
+(()=>{const tip=$('#tip');let pinned=null;
+ const show=(el,x,y)=>{tip.innerHTML=el.dataset.tip;tip.hidden=false;const w=tip.offsetWidth,h=tip.offsetHeight;tip.style.left=Math.min(innerWidth-w-8,Math.max(8,x+12))+'px';tip.style.top=(y-h-12<8?y+16:y-h-12)+'px'};
+ const hide=()=>{tip.hidden=true;pinned=null};
+ document.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const el=e.target.closest('[data-tip]');el?show(el,e.clientX,e.clientY):pinned||hide()});
+ document.addEventListener('click',e=>{const el=e.target.closest('[data-tip]');if(el&&pinned!==el){const r=el.getBoundingClientRect();show(el,r.left+r.width/2,r.top);pinned=el}else hide()});
+ document.addEventListener('focusin',e=>{const el=e.target.closest('[data-tip]');if(el){const r=el.getBoundingClientRect();show(el,r.left+r.width/2,r.top)}});
+ document.addEventListener('focusout',hide);addEventListener('scroll',hide,{passive:true});})();
+function setSort(key){$('#sort').value=key;limit=PAGE;render()}
+$('#sortbar').addEventListener('click',e=>{const b=e.target.closest('[data-sort]');if(b)setSort(b.dataset.sort)});
+$('#ranking thead').addEventListener('click',e=>{const b=e.target.closest('[data-sort]');if(b)setSort(b.dataset.sort)});
+$('#closeDetails').addEventListener('click',()=>{active='';$('#details').hidden=true;saveURL()});
+$('#copyLink').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.href);$('#copyNote').textContent='コピーしました'}catch(e){$('#copyNote').textContent='コピーできませんでした。アドレスバーのURLを使ってください'}setTimeout(()=>$('#copyNote').textContent='',2500)});
+initSortChips();loadURL();render();
+// ページ内ナビ：今いるセクションを光らせる＋先頭へボタン
+(()=>{const links=[...document.querySelectorAll('.jump a')],heads=links.map(a=>document.querySelector(a.getAttribute('href')));
+ const update=()=>{let cur=0;heads.forEach((h,i)=>{if(h.getBoundingClientRect().top<120)cur=i});links.forEach((a,i)=>a.classList.toggle('on',i===cur));$('#toTop').hidden=scrollY<600};
+ addEventListener('scroll',update,{passive:true});update();
+ let rw=innerWidth;addEventListener('resize',()=>{if((rw<650)!==(innerWidth<650)){rw=innerWidth;render()}});
+ $('#toTop').addEventListener('click',()=>scrollTo({top:0}));})();
+</script></body></html>

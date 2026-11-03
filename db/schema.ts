@@ -1,0 +1,3 @@
+import { sqliteTable, text } from "drizzle-orm/sqlite-core";
+export const reports = sqliteTable("correction_reports", {
+id:text("id").primaryKey(), createdAt:text("created_at").notNull(), kind:text("kind").notNull(), player:text("player").notNull(), correctedName:text("corrected_name").notNull(), season:text("season").notNull(), className:text("class_name").notNull(), details:text("details").notNull(), evidence:text("evidence").notNull(), contact:text("contact").notNull(), status:text("status").notNull().default("new") });

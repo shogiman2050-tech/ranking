@@ -1,0 +1,126 @@
+{
+  "seasons": [
+    "神殺し・アナテマ 前半",
+    "神殺し・アナテマ 後半",
+    "クロニクル・オブ・デスティニー 前半",
+    "クロニクル・オブ・デスティニー 後半",
+    "アズヴォルト・レヴナント 前半",
+    "アズヴォルト・レヴナント 後半"
+  ],
+  "aliases": [
+    {
+      "canonical": "頑張れMishadow",
+      "names": [
+        "紫香楽通"
+      ],
+      "confirmed": true
+    },
+    {
+      "canonical": "RYW | レゔァ",
+      "names": [
+        "RYW│しゔァ",
+        "RYW│レゔァ",
+        "RYW | しう゛ァ",
+        "RYW | しづァ"
+      ],
+      "confirmed": true
+    },
+    {
+      "canonical": "C／O／T／D",
+      "names": [
+        "C/O/T/D"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "『蒼』@オーキス推し",
+      "names": [
+        "「蒼」@オーキス推し"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "⊂((・x・))⊃",
+      "names": [
+        "⊂((・×・))⊃"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "たいみー山下",
+      "names": [
+        "たいみー 山下"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "招待コードzGnzsUn",
+      "names": [
+        "招待コードzGnzSUn",
+        "zGnzsUn"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "メガいっつ",
+      "names": [
+        "メガいつつ"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "빈 마르케리따",
+      "names": [
+        "빈 마르계리따"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "교착상태",
+      "names": [
+        "교차상태"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "Starle",
+      "names": [
+        "Starlie"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "玉蘭花秀麗",
+      "names": [
+        "王蘭花秀麗"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "ウィング",
+      "names": [
+        "ウイング"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-10-29 ユーザーの統合指示"
+    },
+    {
+      "canonical": "あ",
+      "names": [],
+      "confirmed": true,
+      "confirmation": "2026-10-30 ユーザー指示で同名を統合",
+      "allow_multiple_records_per_slot": true
+    }
+  ],
+  "record_identities": {}
+}
