@@ -1,9 +1,9 @@
 {
   "_説明": "公開先に合わせて書き換える設定。siteUrl は最後の / まで含めた公開URL。gaId を空にすると Google Analytics を読み込まない。reportUrl に改名・誤り報告フォーム（Googleフォーム等）のURLを入れるとフッターにリンクが出る。",
-  "siteUrl": "https://shadowverse-unlimited-beyond-ranking.jyu785.chatgpt.site/",
+  "siteUrl": "https://unlimited-beyond-ranking.yura-yura.workers.dev/",
   "siteName": "アンリミ ビヨンドランキング",
   "description": "シャドウバース ワールズビヨンドのアンリミテッド、クラス別ランキングのビヨンド到達記録。プレイヤー別の最高CR・全ビヨ回数・総合スコアランキング、環境ごとの平均CRを調べられる非公式ファンサイトです。",
   "gaId": "G-JGHLDMLY56",
-  "reportUrl": "https://shadowverse-unlimited-beyond-ranking.jyu785.chatgpt.site/report",
+  "reportUrl": "https://unlimited-beyond-ranking.yura-yura.workers.dev/report",
   "author": ""
 }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shadowverse-unlimited-beyond-ranking.jyu785.chatgpt.site/sitemap.xml
+Sitemap: https://unlimited-beyond-ranking.yura-yura.workers.dev/sitemap.xml

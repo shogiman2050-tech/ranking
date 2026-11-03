@@ -53,3 +53,10 @@ npx wrangler d1 execute unlimited-beyond-ranking-reports --remote \
 `wrangler dev --local` で `/`・`/report`・`/robots.txt`・`/sitemap.xml` が 200、存在しないパスが 404。
 `/api/reports` への正常送信でローカルD1に保存され、別originからの送信は 403 で拒否された。
 `wrangler deploy --dry-run` も通過（約1.4MB / gzip 約300KB）。本番環境での確認はまだ。
+
+## 本番公開（2026-11-03）
+
+- 公開URL：https://unlimited-beyond-ranking.yura-yura.workers.dev/
+- Worker：`unlimited-beyond-ranking` / D1：`unlimited-beyond-ranking-reports`（`CF_D1_DATABASE_ID=da2819a7-e34b-4178-a706-a7bdd73217b6`）
+- 本番で `/`・`/report`・`/robots.txt`・`/sitemap.xml` が 200、存在しないパスが 404、canonical・sitemap が新URLになっていることを確認。
+- `/api/reports` への本番送信テストは、本番D1にテスト行が残るので未実施。
