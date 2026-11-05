@@ -19,4 +19,4 @@
 同名の複数記録を保持: ('アズヴォルト・レヴナント 前半', 'ウィッチ') あ 14位, 57位
 同名の複数記録を保持: ('アズヴォルト・レヴナント 後半', 'ウィッチ') あ 3位, 30位, 49位, 60位, 69位
 NFKC表記ゆれ候補（自動統合しない）: C/O/T/D / C／O／T／D
-公開URL：https://unlimited-beyond-ranking.yura-yura.workers.dev/　最終更新日：2026-11-05　index.html 678KB
+公開URL：https://unlimited-beyond-ranking.yura-yura.workers.dev/　最終更新日：2026-11-05　index.html 693KB
