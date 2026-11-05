@@ -60,3 +60,14 @@ npx wrangler d1 execute unlimited-beyond-ranking-reports --remote \
 - Worker：`unlimited-beyond-ranking` / D1：`unlimited-beyond-ranking-reports`（`CF_D1_DATABASE_ID=da2819a7-e34b-4178-a706-a7bdd73217b6`）
 - 本番で `/`・`/report`・`/robots.txt`・`/sitemap.xml` が 200、存在しないパスが 404、canonical・sitemap が新URLになっていることを確認。
 - `/api/reports` への本番送信テストは、本番D1にテスト行が残るので未実施。
+
+## 修正報告のメール通知
+
+`/api/reports` は D1 に保存したあと、Worker のシークレット `RESEND_API_KEY` と `REPORT_EMAIL_TO` が両方あるときだけ Resend でメールを送る（送信失敗でも受付は成功扱い）。
+
+- `REPORT_EMAIL_TO`：設定済み（宛先アドレス。リポジトリには書かない）
+- `RESEND_API_KEY`：https://resend.com に宛先と同じメールアドレスで登録し、API Keys で作ったキーを入れる
+  ```sh
+  npx wrangler secret put RESEND_API_KEY --config dist/server/wrangler.json
+  ```
+  差出人は `onboarding@resend.dev`（独自ドメインなしで使える送信元。登録したアドレス宛てにだけ送れる）。
