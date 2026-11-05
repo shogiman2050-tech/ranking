@@ -8,6 +8,10 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# 環境側の変数名が小文字混じりでも拾う。D1のIDは秘密ではないので既定値を持つ
+export CLOUDFLARE_API_TOKEN="${CLOUDFLARE_API_TOKEN:-${cloudflare_API_TOKEN:-}}"
+export CLOUDFLARE_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-${cloudflare_account_ID:-}}"
+export CF_D1_DATABASE_ID="${CF_D1_DATABASE_ID:-da2819a7-e34b-4178-a706-a7bdd73217b6}"
 : "${CLOUDFLARE_API_TOKEN:?CLOUDFLARE_API_TOKEN を設定してください}"
 : "${CLOUDFLARE_ACCOUNT_ID:?CLOUDFLARE_ACCOUNT_ID を設定してください}"
 : "${CF_D1_DATABASE_ID:?CF_D1_DATABASE_ID を設定してください}"
