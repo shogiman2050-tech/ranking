@@ -12,11 +12,11 @@ class ValidationTests(unittest.TestCase):
         self.assertTrue(prepare([self.row, self.row], self.config)[1])
     def test_same_name_conflict_rejected(self):
         self.assertTrue(prepare([self.row, dict(self.row, rank=2, cr=1890)], self.config)[1])
-    def test_a_merged(self):
+    def test_a_split_per_record(self):
         a=dict(self.row, name='あ'); b=dict(a, rank=2, cr=1890)
         rows, errors, _=prepare([a,b], self.config)
         self.assertFalse(errors)
-        self.assertEqual(rows[0]['personKey'], rows[1]['personKey'])
+        self.assertNotEqual(rows[0]['personKey'], rows[1]['personKey'])
     def test_other_short_names_merge(self):
         for name in ['光里', 'K', 'あい']:
             a=dict(self.row,name=name)
@@ -53,7 +53,7 @@ class ValidationTests(unittest.TestCase):
         raw=json.loads((ROOT/'records.json').read_text()); out, errors, _=prepare(raw,self.full_config)
         self.assertFalse(errors); self.assertEqual(len(out),2376)
         aa=[r for r in out if r['name']=='あ' and not r['personKey'].startswith('verified:')]
-        self.assertEqual(1,len({r['personKey'] for r in aa}))
+        self.assertEqual(len(aa),len({r['personKey'] for r in aa}))
         mori=[r for r in out if r['personKey'].startswith('verified:') and r['season'].startswith(('クロニクル','アズヴォルト')) and r['className']=='エルフ' and r['name']=='あ']
         self.assertEqual(len(mori),3); self.assertEqual(len({r['personKey'] for r in mori}),1)
         self.assertEqual(len({r['personKey'] for r in out if r['name']=='Player'}),3)

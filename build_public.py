@@ -60,6 +60,9 @@ def prepare(rows, config):
             key = 'verified:' + hashlib.sha256(person['id'].encode()).hexdigest()[:12]
         elif explicit:
             key = 'verified:' + explicit
+        elif original in config.get('split_names', []):
+            # 「あ」など、同名でも記録ごとに別人として扱う名前
+            key = 'record:' + rid
         elif original in aliases:
             key = 'name:' + r['name']
         else:

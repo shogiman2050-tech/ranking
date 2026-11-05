@@ -30,7 +30,8 @@ def publish(ROOT, out, seasons):
         if marker not in template:
             print(f'page.html に {marker} がありません')
             sys.exit(1)
-    page = (template.replace('/*__DATA__*/', data).replace('/*__SEASONS__*/', season_json)
+    suspects = json.dumps(json.loads((ROOT / 'players.json').read_text(encoding='utf-8')).get('suspect_names', []), ensure_ascii=False).replace('</', '<\\/')
+    page = (template.replace('/*__SUSPECT__*/', suspects).replace('/*__DATA__*/', data).replace('/*__SEASONS__*/', season_json)
             .replace('<!--__GA__-->', ga).replace('<!--__REPORT__-->', report)
             .replace('<!--__GA_NOTE__-->', 'アクセス解析にGoogle Analyticsを使用しています。' if ga_id else '')
             .replace('{{JSONLD}}', jsonld).replace('{{SITE_URL}}', html.escape(site_url))

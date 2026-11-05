@@ -117,13 +117,6 @@
       "confirmation": "2026-10-29 ユーザーの統合指示"
     },
     {
-      "canonical": "あ",
-      "names": [],
-      "confirmed": true,
-      "confirmation": "2026-10-30 ユーザー指示で同名を統合",
-      "allow_multiple_records_per_slot": true
-    },
-    {
       "canonical": "守護次元　プリノウズ愛",
       "names": [
         "守護次元 プリノウズ愛"
@@ -234,5 +227,22 @@
         }
       ]
     }
-  ]
+  ],
+  "split_names": [
+    "あ"
+  ],
+  "split_names_confirmation": "2026-11-05 ユーザー指示：「あ」は統合せず記録ごとに別人として扱う（本人と確認できた記録は person_identities で束ねる）",
+  "suspect_names": [
+    "Sadtopia",
+    "H",
+    "り",
+    "?",
+    "ま",
+    "ぷ",
+    "Y",
+    "h",
+    "よ",
+    "∀"
+  ],
+  "suspect_names_note": "同名の別人が混ざっているかもしれない名前（未確認・統合したまま表示）。2026-11-05 時点"
 }
