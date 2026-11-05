@@ -67,7 +67,5 @@ npx wrangler d1 execute unlimited-beyond-ranking-reports --remote \
 
 - `REPORT_EMAIL_TO`：設定済み（宛先アドレス。リポジトリには書かない）
 - `RESEND_API_KEY`：https://resend.com に宛先と同じメールアドレスで登録し、API Keys で作ったキーを入れる
-  ```sh
-  npx wrangler secret put RESEND_API_KEY --config dist/server/wrangler.json
-  ```
+  実行環境の環境変数 `RESEND_API_KEY` に入れておけば、`npm run deploy:cloudflare` が公開のたびに自動で登録する。
   差出人は `onboarding@resend.dev`（独自ドメインなしで使える送信元。登録したアドレス宛てにだけ送れる）。

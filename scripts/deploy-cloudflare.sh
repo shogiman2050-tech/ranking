@@ -44,3 +44,10 @@ node "$WRANGLER" d1 migrations apply "$CF_D1_DATABASE_NAME" --remote --config "$
 
 echo "== デプロイ"
 node "$WRANGLER" deploy --config "$CONFIG"
+
+# 修正報告のメール通知用キー。環境変数にあるときだけ Worker のシークレットへ登録する
+RESEND_API_KEY="${RESEND_API_KEY:-${resend_API_KEY:-}}"
+if [ -n "$RESEND_API_KEY" ]; then
+  echo "== メール通知キーを登録"
+  printf '%s' "$RESEND_API_KEY" | node "$WRANGLER" secret put RESEND_API_KEY --config "$CONFIG"
+fi
