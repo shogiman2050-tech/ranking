@@ -24,6 +24,7 @@ def prepare(rows, config):
                 errors.append('別名の競合: ' + name)
             aliases[name] = group['canonical']
     allowed_multiple = {'name:' + g['canonical'] for g in config['aliases'] if g.get('confirmed') and g.get('allow_multiple_records_per_slot')}
+    allowed_multiple |= {'verified:' + hashlib.sha256(g['id'].encode()).hexdigest()[:12] for g in config.get('person_identities', []) if g.get('allow_multiple_records_per_slot')}
     seen_ids, identities, groups, names = set(), defaultdict(list), defaultdict(list), defaultdict(set)
     # 同名でも別人／改名で同名になった人を、期間・クラス・順位・CR・表示名で指定して分ける
     person_of = {}

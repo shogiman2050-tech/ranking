@@ -1,11 +1,27 @@
-<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>改名・記録の修正報告 | アンリミ ビヨンドランキング</title><style>
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>改名・記録の修正報告 | アンリミ ビヨンドランキング</title><style id="themeModern">
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap");
+:root{--bg:#f3f2f7;--panel:#fff;--panel2:#ebe9f1;--fg:#17151f;--muted:#6a6578;--line:#dedbe7;--t0:#c2185b;--t2:#2e7d8f;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#121019;--panel:#1c1926;--panel2:#262233;--fg:#efedf5;--muted:#9e98b0;--line:#2e2a3b;--t0:#ff4f8b;--t2:#4fb8cf;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.7 "Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+main{max-width:720px;margin:auto;padding:32px 16px 64px}a{color:var(--fg);font-weight:700;text-decoration-color:var(--line);text-decoration-thickness:2px;text-underline-offset:4px}a:hover{text-decoration-color:var(--t0)}
+h1{font-family:"Dela Gothic One","Hiragino Kaku Gothic ProN",sans-serif;font-weight:400;font-size:clamp(24px,5vw,32px);line-height:1.2;margin:20px 0 8px}
+p{color:var(--muted)}form{background:var(--panel);padding:22px 20px;border:1px solid var(--line);border-left:6px solid var(--t0);border-radius:6px}
+label{display:block;margin:18px 0 6px;font-weight:700;font-size:14px}
+input,select,textarea,button{font:inherit;width:100%;padding:10px 12px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+input::placeholder,textarea::placeholder{color:var(--muted)}textarea{resize:vertical;min-height:160px}
+button{background:var(--fg);color:var(--bg);border-color:var(--fg);border-radius:999px;font-weight:700;margin-top:24px;cursor:pointer;min-height:44px}button:hover{opacity:.85}button:disabled{opacity:.6}
+small{color:var(--muted);font-weight:400}#status{white-space:pre-wrap;color:var(--fg)}.trap{position:absolute;left:-9999px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:560px){.grid{grid-template-columns:1fr;gap:0}form{padding:16px}}
+:focus-visible{outline:2px solid var(--t2);outline-offset:2px}
+</style><style id="themeClassic" media="not all">
 *{box-sizing:border-box}body{margin:0;background:#0b1220;color:#e6edf8;font:16px/1.7 system-ui,sans-serif}main{max-width:720px;margin:auto;padding:32px 20px 64px}a{color:#85d9c8}h1{font-size:28px;margin:20px 0 8px}p{color:#aab9cf}form{background:#152136;padding:26px;border:1px solid #30425b;border-radius:18px}label{display:block;margin:18px 0 6px;font-weight:650}input,select,textarea,button{font:inherit;width:100%;padding:12px;border-radius:9px;border:1px solid #465c78;background:#0c1729;color:#fff}textarea{resize:vertical;min-height:160px}button{background:#83dec8;color:#092921;font-weight:750;margin-top:24px;cursor:pointer}button:disabled{opacity:.6}small{color:#aab9cf}#status{white-space:pre-wrap}.trap{position:absolute;left:-9999px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:560px){.grid{grid-template-columns:1fr;gap:0}form{padding:18px}h1{font-size:24px}}:focus-visible{outline:3px solid #83dec8;outline-offset:3px}
-</style><main><a href="/">← ランキングに戻る</a><h1>改名・記録の修正報告</h1><p>名前の誤記、改名、CR・順位の間違い、記録漏れを教えてください。確認後にランキングへ反映します。</p><form id="report">
+</style><script>try{if(localStorage.getItem("design")==="classic"){document.getElementById("themeModern").media="not all";document.getElementById("themeClassic").media="all"}}catch(e){}</script>
+<main><a href="/">← ランキングに戻る</a><h1>改名・記録の修正報告</h1><p>名前の誤記、改名、CR・順位の間違い、記録漏れを教えてください。確認後にランキングへ反映します。</p><form id="report">
 <label for="kind">報告の種類 <small>必須</small></label><select id="kind" name="kind" required><option value="">選択してください</option><option>改名</option><option>名前の誤記</option><option>CR・順位の訂正</option><option>記録の追加・漏れ</option><option>その他</option></select>
 <label for="player">現在サイトに載っている名前 <small>必須</small></label><input id="player" name="player" maxlength="100" required placeholder="記録がない場合はゲーム内の名前">
 <label for="correctedName">正しい名前・改名後の名前 <small>任意</small></label><input id="correctedName" name="correctedName" maxlength="100">
 <div class="grid"><div><label for="season">環境・期間 <small>任意</small></label><select id="season" name="season"><option value="">全期間・不明</option>__SEASONS__</select></div><div><label for="className">クラス <small>任意</small></label><select id="className" name="className"><option value="">全クラス・不明</option><option>エルフ</option><option>ロイヤル</option><option>ウィッチ</option><option>ドラゴン</option><option>ナイトメア</option><option>ビショップ</option><option>ネメシス</option></select></div></div>
-<label for="details">修正内容 <small>必須</small></label><textarea id="details" name="details" required maxlength="2500" placeholder="例：ネメシス2位の名前は「ユタニ」ではなく「ユター」です。CRや順位の訂正は、現在の値と正しい値を記入してください。"></textarea>
+<label for="details">修正内容 <small>必須</small></label><textarea id="details" name="details" required maxlength="2500" placeholder="CRや順位の訂正は、現在の値と正しい値を記入してください。"></textarea>
 <label for="evidence">確認できる画像・動画のURL <small>任意</small></label><input id="evidence" name="evidence" type="url" maxlength="1000" placeholder="https://…">
 <label for="contact">連絡先・XのIDなど <small>任意</small></label><input id="contact" name="contact" maxlength="150" placeholder="必要な場合のみ">
 <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>

@@ -226,12 +226,167 @@
           "name": "Player"
         }
       ]
+    },
+    {
+      "id": "あ（塊A）",
+      "label": "エンブレム＋よろしくお願いします",
+      "confirmation": "2026-11-05 ユーザー確認（アイコン・称号の照合）",
+      "allow_multiple_records_per_slot": true,
+      "records": [
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ロイヤル",
+          "rank": 22,
+          "cr": 1859,
+          "name": "あ"
+        },
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ネメシス",
+          "rank": 45,
+          "cr": 1878,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 前半",
+          "className": "ウィッチ",
+          "rank": 35,
+          "cr": 1895,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "ウィッチ",
+          "rank": 78,
+          "cr": 1877,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "ネメシス",
+          "rank": 50,
+          "cr": 1856,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "ウィッチ",
+          "rank": 14,
+          "cr": 1863,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ウィッチ",
+          "rank": 3,
+          "cr": 1930,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ウィッチ",
+          "rank": 30,
+          "cr": 1863,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ウィッチ",
+          "rank": 49,
+          "cr": 1859,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "あ（塊B）",
+      "label": "エンブレム＋気紛れで気分屋",
+      "confirmation": "2026-11-05 ユーザー確認（アイコン・称号の照合）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ロイヤル",
+          "rank": 33,
+          "cr": 1856,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "ナイトメア",
+          "rank": 2,
+          "cr": 1878,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ナイトメア",
+          "rank": 20,
+          "cr": 1851,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "あ（塊C）",
+      "label": "エンブレム＋Skybound Dragons 2Pick Cup 優勝",
+      "confirmation": "2026-11-05 ユーザー確認（アイコン・称号の照合）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 前半",
+          "className": "ナイトメア",
+          "rank": 39,
+          "cr": 1852,
+          "name": "あ"
+        },
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ナイトメア",
+          "rank": 20,
+          "cr": 1859,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "あ（塊D）",
+      "label": "茶髪の少女アイコン＋よろしくお願いします",
+      "confirmation": "2026-11-05 ユーザー確認（アイコン・称号の照合）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ビショップ",
+          "rank": 75,
+          "cr": 1861,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "ビショップ",
+          "rank": 20,
+          "cr": 1862,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "ウィッチ",
+          "rank": 57,
+          "cr": 1851,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ウィッチ",
+          "rank": 69,
+          "cr": 1855,
+          "name": "あ"
+        }
+      ]
     }
   ],
   "split_names": [
     "あ"
   ],
-  "split_names_confirmation": "2026-11-05 ユーザー指示：「あ」は統合せず記録ごとに別人として扱う（本人と確認できた記録は person_identities で束ねる）",
+  "split_names_confirmation": "2026-11-05 ユーザー指示：「あ」は統合せず記録ごとに別人として扱う（本人と確認できた記録は person_identities で束ねる）。2026-11-05 アイコン・称号が一致した塊A〜Dは同一人物としてまとめ、残り10席は単独",
   "suspect_names": [
     "Sadtopia",
     "H",
