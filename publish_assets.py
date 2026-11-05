@@ -23,8 +23,9 @@ def publish(ROOT, out, seasons):
           "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}"
           "gtag('js',new Date());gtag('config'," + json.dumps(ga_id) + ");</script>") if ga_id else ''
     report_url = site.get('reportUrl', '').strip()
-    report = (f' 改名・記録の誤りは<a href="{html.escape(report_url)}" target="_blank" rel="noopener">こちらのフォーム</a>から教えてください。'
+    report = (f'<p class="small">改名・記録の誤り・記録漏れは<a href="{html.escape(report_url)}">修正報告フォーム</a>から教えてください。</p>'
               if report_url else '')
+    report_link = (f'<a class="report-link" href="{html.escape(report_url)}">改名・記録の誤りを報告</a>' if report_url else '')
     template = (ROOT / 'page.html').read_text(encoding='utf-8')
     for marker in ('/*__DATA__*/', '/*__SEASONS__*/', '<!--__GA__-->'):
         if marker not in template:
@@ -32,7 +33,7 @@ def publish(ROOT, out, seasons):
             sys.exit(1)
     suspects = json.dumps(json.loads((ROOT / 'players.json').read_text(encoding='utf-8')).get('suspect_names', []), ensure_ascii=False).replace('</', '<\\/')
     page = (template.replace('/*__SUSPECT__*/', suspects).replace('/*__DATA__*/', data).replace('/*__SEASONS__*/', season_json)
-            .replace('<!--__GA__-->', ga).replace('<!--__REPORT__-->', report)
+            .replace('<!--__GA__-->', ga).replace('<!--__REPORT__-->', report).replace('<!--__REPORT_LINK__-->', report_link)
             .replace('<!--__GA_NOTE__-->', 'アクセス解析にGoogle Analyticsを使用しています。' if ga_id else '')
             .replace('{{JSONLD}}', jsonld).replace('{{SITE_URL}}', html.escape(site_url))
             .replace('{{SITE_NAME}}', html.escape(site['siteName']))

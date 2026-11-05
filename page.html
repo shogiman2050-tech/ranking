@@ -255,7 +255,7 @@ th,td{font-size:13px;padding:8px}
 
 @media(max-width:650px){.sortbar{flex-wrap:wrap;overflow:visible}.chip{min-height:44px}#ranking td.full-periods{grid-column:1/-1;overflow-wrap:anywhere}.name{overflow-wrap:anywhere}#details table,.average-table table{min-width:0}#details thead,.average-table thead{display:none}#details tr,.average-table tr{display:block;padding:10px;border-bottom:1px solid var(--line)}#details td,.average-table td{display:flex;justify-content:space-between;gap:12px;white-space:normal;text-align:right;border:0}#details td:before,.average-table td:before{content:attr(data-label);color:var(--muted);text-align:left}}
 </style>
-<style>.theme-row{margin:10px 0 0}.theme-toggle{min-height:34px;padding:5px 14px;font-size:13px;border-radius:999px;white-space:nowrap}</style>
+<style>.theme-row{margin:10px 0 0}.theme-toggle{min-height:34px;padding:5px 14px;font-size:13px;border-radius:999px;white-space:nowrap}.theme-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.report-link{display:inline-flex;align-items:center;min-height:34px;padding:5px 14px;font-size:13px;font-weight:700;border-radius:999px;border:1px solid currentColor;text-decoration:none;color:inherit;white-space:nowrap}.report-link:hover{opacity:.75}.notes ul{margin:0;padding-left:1.2em}.notes li{margin:0 0 6px}.notes .howto{margin-top:10px}</style>
 <script>
 // 新デザイン⇔旧デザインの切り替え（選択はこのブラウザにだけ保存）
 function applyTheme(classic){document.documentElement.classList.toggle('classic',classic);document.getElementById('themeModern').media=classic?'not all':'all';document.getElementById('themeClassic').media=classic?'all':'not all';
@@ -265,7 +265,7 @@ function applyTheme(classic){document.documentElement.classList.toggle('classic'
 </script>
 </head><body>
 <noscript><p style="padding:12px 16px;background:#5a2a2a;margin:0">このページの表示にはJavaScriptが必要です。</p></noscript>
-<header><div class="kicker">SHADOWVERSE WORLDS BEYOND · UNLIMITED</div><h1>ビヨンドランキング</h1><p class="intro">クラス別ランキングの到達記録から、プレイヤーの最高CRと達成回数を集計。</p><p class="theme-row"><button type="button" id="themeToggle" class="theme-toggle">旧デザイン</button></p></header>
+<header><div class="kicker">SHADOWVERSE WORLDS BEYOND · UNLIMITED</div><h1>ビヨンドランキング</h1><p class="intro">クラス別ランキングの到達記録から、プレイヤーの最高CRと達成回数を集計。</p><p class="theme-row"><button type="button" id="themeToggle" class="theme-toggle">旧デザイン</button><!--__REPORT_LINK__--></p></header>
 <nav class="jump" aria-label="ページ内リンク"><div class="jump-in"><a href="#filterTitle">条件</a><a href="#rankingTitle">プレイヤー別</a><a href="#scoreTitle">総合スコア</a><a href="#averageTitle">平均CR</a></div></nav>
 <main>
 <section class="panel" aria-labelledby="filterTitle"><h2 id="filterTitle">対象を選ぶ</h2><div class="toolbar">
@@ -295,9 +295,14 @@ function applyTheme(classic){document.documentElement.classList.toggle('classic'
 <div class="chart"><h3 class="chart-h">クラス別の平均CR</h3><p class="small" id="barsSub"></p><div id="avgBars" class="bars"></div></div>
 <div class="chart"><h3 class="chart-h">期間 × クラス</h3><p class="small">明るいほど平均CRが高い。マスに触れると人数と最高CRが出ます。</p><div id="heat" class="heat"></div><div class="scale" aria-hidden="true"><span id="scaleLo"></span><i></i><span id="scaleHi"></span></div></div>
 <details class="howto"><summary>表で見る</summary><div class="toolbar"><div class="sort-control"><span id="averageSortLabel">クラスの並べ替え</span><select id="averageSort" hidden aria-hidden="true" tabindex="-1"><option value="period">環境の順</option><option value="average">平均CRが高い順</option><option value="count">ビヨンド人数が多い順</option></select><div class="sort-chips" id="averageSortChips" role="group" aria-labelledby="averageSortLabel"></div></div></div><div class="scroll average-table"><table id="averages"><thead><tr><th>環境</th><th>期間</th><th>クラス</th><th class="num">ビヨンド人数</th><th class="num">平均CR</th><th class="num">最高CR</th></tr></thead><tbody></tbody></table></div></details></section>
+<section class="panel notes" aria-labelledby="notesTitle"><h2 id="notesTitle">表記と集計について</h2><ul class="small">
+<li>確認済みの別名は統合し、同名は同一人物として集計しています。「あ」はアイコン・称号などで同一人物と確認できた記録だけをまとめ、それ以外は記録ごとに別人として扱います。</li>
+<li>同じ期間・クラスに同一人物の記録が複数ある場合、個人の回数・スコアは最高CRの記録を1回分として集計し、詳細とクラス平均には全記録を残します。</li>
+<li>プレイヤー名の l と I はゲーム内フォントで判別できないため、I に統一して表記しています。</li>
+<li>「歴歴Y」はゲーム内では対応する文字が見当たらない字形（「歴」の木が禾になった旧字形と、分かれ道状のY）のため、近い文字で表記しています。</li>
+</ul><!--__REPORT__-->
+<details class="howto" id="suspectBox"><summary>同名の別人が混ざっているかもしれない名前</summary><p>名前だけでは見分けられないため、今は同一人物としてまとめて集計しています。</p><div id="suspects"></div></details></section>
 </main><footer><p><span id="coverage"></span>／アンリミテッド。動画で確認できた到達者（CR1850以上）の記録です。最終更新：{{UPDATED}}</p>
-<p>確認済みの別名を統合し、同名は同一人物として集計しています（「あ」だけは記録ごとに別人として扱います）。同じ期間・クラスに複数記録がある場合、個人の回数・スコアは最高CRの記録を1回分として集計し、詳細とクラス平均には全記録を残します。プレイヤー名の l と I はゲーム内フォントで判別できないため、本サイトでは I に統一して表記しています。「歴歴Y」はゲーム内では対応する文字が見当たらない字形（「歴」の木が禾になった旧字形と、分かれ道状のY）のため、近い文字で表記しています。<!--__REPORT__--></p>
-<details class="howto" id="suspectBox"><summary>同名の別人が混ざっているかもしれない名前</summary><p>名前だけでは見分けられないため、今は同一人物としてまとめて集計しています。</p><div id="suspects"></div></details>
 <p>当サイトは個人が運営する非公式のファンサイトで、株式会社Cygamesとは関係ありません。「シャドウバース ワールズビヨンド」に関する権利は株式会社Cygamesに帰属します。<!--__GA_NOTE__--></p></footer>
 <div id="tip" class="tip" role="tooltip" hidden></div>
 <button type="button" id="toTop" class="totop" aria-label="ページの先頭へ" hidden>▲</button>
