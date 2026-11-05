@@ -21,25 +21,27 @@
         "RYW│しゔァ",
         "RYW│レゔァ",
         "RYW | しう゛ァ",
-        "RYW | しづァ"
+        "RYW | しづァ",
+        "RYW | レう゛ァ"
       ],
       "confirmed": true
     },
     {
-      "canonical": "C／O／T／D",
+      "canonical": "C/O/T/D",
       "names": [
-        "C/O/T/D"
+        "C／O／T／D"
       ],
       "confirmed": true,
-      "confirmation": "2026-10-29 ユーザーの統合指示"
+      "confirmation": "2026-11-05 再録照合レポートの表記統一"
     },
     {
-      "canonical": "『蒼』@オーキス推し",
+      "canonical": "『蒼』 @オーキス推し",
       "names": [
+        "『蒼』@オーキス推し",
         "「蒼」@オーキス推し"
       ],
       "confirmed": true,
-      "confirmation": "2026-10-29 ユーザーの統合指示"
+      "confirmation": "2026-11-05 再録照合レポートの表記統一"
     },
     {
       "canonical": "⊂((・x・))⊃",
@@ -50,12 +52,12 @@
       "confirmation": "2026-10-29 ユーザーの統合指示"
     },
     {
-      "canonical": "たいみー山下",
+      "canonical": "たいみー 山下",
       "names": [
-        "たいみー 山下"
+        "たいみー山下"
       ],
       "confirmed": true,
-      "confirmation": "2026-10-29 ユーザーの統合指示"
+      "confirmation": "2026-11-05 再録照合レポートの表記統一"
     },
     {
       "canonical": "招待コードzGnzsUn",
@@ -99,12 +101,12 @@
       "confirmation": "2026-10-29 ユーザーの統合指示"
     },
     {
-      "canonical": "玉蘭花秀麗",
+      "canonical": "王蘭花秀麗",
       "names": [
-        "王蘭花秀麗"
+        "玉蘭花秀麗"
       ],
       "confirmed": true,
-      "confirmation": "2026-10-29 ユーザーの統合指示"
+      "confirmation": "2026-11-05 再録照合レポートの表記統一"
     },
     {
       "canonical": "ウィング",
@@ -120,6 +122,22 @@
       "confirmed": true,
       "confirmation": "2026-10-30 ユーザー指示で同名を統合",
       "allow_multiple_records_per_slot": true
+    },
+    {
+      "canonical": "守護次元　プリノウズ愛",
+      "names": [
+        "守護次元 プリノウズ愛"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-11-05 再録照合レポート（全角空白1つに統一）"
+    },
+    {
+      "canonical": "幡田　零",
+      "names": [
+        "幡田 零"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-11-05 再録照合レポート（空白の全角・半角違いのみ）"
     }
   ],
   "record_identities": {}
