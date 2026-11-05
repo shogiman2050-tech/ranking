@@ -148,5 +148,91 @@
       "confirmation": "2026-11-05 ユーザー確認（同一人物）"
     }
   ],
-  "record_identities": {}
+  "record_identities": {},
+  "person_identities": [
+    {
+      "id": "もりもりごはんパワー",
+      "label": "旧もりもりごはんパワー",
+      "confirmation": "2026-11-05 ユーザー確認（初期称号・初期アイコン。表示名は「あ」）",
+      "records": [
+        {
+          "season": "クロニクル・オブ・デスティニー 前半",
+          "className": "エルフ",
+          "rank": 40,
+          "cr": 1854,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "エルフ",
+          "rank": 27,
+          "cr": 1867,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "エルフ",
+          "rank": 14,
+          "cr": 1861,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "進藤",
+      "label": "旧進藤",
+      "confirmation": "2026-11-05 ユーザー確認（元「進藤」・スタチウム・初期称号。表示名は「あ」）",
+      "records": [
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "ナイトメア",
+          "rank": 64,
+          "cr": 1850,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "a（旧あ）",
+      "label": "旧あ",
+      "confirmation": "2026-11-05 ユーザー確認（「あ」から「a」に改名した人。他の「a」とは別人として扱う）",
+      "records": [
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "ビショップ",
+          "rank": 14,
+          "cr": 1854,
+          "name": "a"
+        }
+      ]
+    },
+    {
+      "id": "Player（旧モグチー）",
+      "label": "旧モグチー",
+      "confirmation": "2026-11-05 ユーザー確認（初期称号・初期アイコン）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 前半",
+          "className": "ナイトメア",
+          "rank": 28,
+          "cr": 1857,
+          "name": "Player"
+        }
+      ]
+    },
+    {
+      "id": "Player（旧でかぱい）",
+      "label": "旧でかぱい",
+      "confirmation": "2026-11-05 ユーザー確認（ララアンセムアイコン・ニーゲルヘリア神殺事件GM称号）",
+      "records": [
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ウィッチ",
+          "rank": 77,
+          "cr": 1854,
+          "name": "Player"
+        }
+      ]
+    }
+  ]
 }
