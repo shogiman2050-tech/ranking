@@ -138,6 +138,14 @@
       ],
       "confirmed": true,
       "confirmation": "2026-11-05 再録照合レポート（空白の全角・半角違いのみ）"
+    },
+    {
+      "canonical": "RYW | かたひら",
+      "names": [
+        "RYW｜かたひら"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-11-05 ユーザー確認（同一人物）"
     }
   ],
   "record_identities": {}
