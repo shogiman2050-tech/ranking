@@ -56,9 +56,8 @@ def prepare(rows, config):
         person = person_of.get((r['season'], r['className'], rank, r['cr'], original))
         if person:
             used_people.add((r['season'], r['className'], rank, r['cr'], original))
-            key = 'verified:' + person['id']
-            if person.get('label'):
-                r['personLabel'] = person['label']
+            # 公開データに旧名が出ないよう、人物IDはハッシュにする
+            key = 'verified:' + hashlib.sha256(person['id'].encode()).hexdigest()[:12]
         elif explicit:
             key = 'verified:' + explicit
         elif original in aliases:

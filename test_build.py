@@ -40,17 +40,21 @@ class ValidationTests(unittest.TestCase):
         rows,errors,_=prepare([a,b],self.config)
         self.assertFalse(errors)
         self.assertNotEqual(rows[0]['personKey'],rows[1]['personKey'])
-        self.assertEqual(rows[1]['personLabel'],'旧X')
         self.assertEqual(rows[1]['name'],'あ')
     def test_person_identity_unmatched_is_error(self):
         self.config['person_identities']=[{'id':'X','records':[dict(season=self.row['season'],className='エルフ',rank=99,cr=1850,name='誰')]}]
         self.assertTrue(prepare([self.row],self.config)[1])
+    def test_old_names_not_published(self):
+        raw=json.loads((ROOT/'records.json').read_text()); out,_,_=prepare(raw,self.full_config)
+        blob=json.dumps(out,ensure_ascii=False)
+        for word in ['もりもりごはんパワー','進藤','ビバチー','でかぱい']:
+            self.assertNotIn(word,blob)
     def test_all_records_preserved(self):
         raw=json.loads((ROOT/'records.json').read_text()); out, errors, _=prepare(raw,self.full_config)
         self.assertFalse(errors); self.assertEqual(len(out),2376)
-        aa=[r for r in out if r['name']=='あ' and not r.get('personLabel')]
+        aa=[r for r in out if r['name']=='あ' and not r['personKey'].startswith('verified:')]
         self.assertEqual(1,len({r['personKey'] for r in aa}))
-        mori=[r for r in out if r.get('personLabel')=='旧もりもりごはんパワー']
+        mori=[r for r in out if r['personKey'].startswith('verified:') and r['season'].startswith(('クロニクル','アズヴォルト')) and r['className']=='エルフ' and r['name']=='あ']
         self.assertEqual(len(mori),3); self.assertEqual(len({r['personKey'] for r in mori}),1)
         self.assertEqual(len({r['personKey'] for r in out if r['name']=='Player'}),3)
         mishadow=[r for r in out if r['name']=='頑張れMishadow']
