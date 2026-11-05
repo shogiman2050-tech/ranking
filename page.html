@@ -255,7 +255,7 @@ th,td{font-size:13px;padding:8px}
 
 @media(max-width:650px){.sortbar{flex-wrap:wrap;overflow:visible}.chip{min-height:44px}#ranking td.full-periods{grid-column:1/-1;overflow-wrap:anywhere}.name{overflow-wrap:anywhere}#details table,.average-table table{min-width:0}#details thead,.average-table thead{display:none}#details tr,.average-table tr{display:block;padding:10px;border-bottom:1px solid var(--line)}#details td,.average-table td{display:flex;justify-content:space-between;gap:12px;white-space:normal;text-align:right;border:0}#details td:before,.average-table td:before{content:attr(data-label);color:var(--muted);text-align:left}}
 </style>
-<style>.theme-row{margin:10px 0 0}.theme-toggle{min-height:34px;padding:5px 14px;font-size:13px;border-radius:999px;white-space:nowrap}.theme-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.report-link{display:inline-flex;align-items:center;min-height:34px;padding:5px 14px;font-size:13px;font-weight:700;border-radius:999px;border:1px solid currentColor;text-decoration:none;color:inherit;white-space:nowrap}.report-link:hover{opacity:.75}.notes ul{margin:0;padding-left:1.2em}.notes li{margin:0 0 6px}.notes .howto{margin-top:10px}</style>
+<style>.theme-row{margin:10px 0 0}.theme-toggle{min-height:34px;padding:5px 14px;font-size:13px;border-radius:999px;white-space:nowrap}.theme-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.report-link{display:inline-flex;align-items:center;min-height:34px;padding:5px 14px;font-size:13px;font-weight:700;border-radius:999px;border:1px solid currentColor;text-decoration:none;color:inherit;white-space:nowrap}.report-link:hover{opacity:.75}.tier-link{margin-left:auto}.notes ul{margin:0;padding-left:1.2em}.notes li{margin:0 0 6px}.notes .howto{margin-top:10px}</style>
 <script>
 // 新デザイン⇔旧デザインの切り替え（選択はこのブラウザにだけ保存）
 function applyTheme(classic){document.documentElement.classList.toggle('classic',classic);document.getElementById('themeModern').media=classic?'not all':'all';document.getElementById('themeClassic').media=classic?'all':'not all';
@@ -265,7 +265,7 @@ function applyTheme(classic){document.documentElement.classList.toggle('classic'
 </script>
 </head><body>
 <noscript><p style="padding:12px 16px;background:#5a2a2a;margin:0">このページの表示にはJavaScriptが必要です。</p></noscript>
-<header><div class="kicker">SHADOWVERSE WORLDS BEYOND · UNLIMITED</div><h1>ビヨンドランキング</h1><p class="intro">クラス別ランキングの到達記録から、プレイヤーの最高CRと達成回数を集計。</p><p class="theme-row"><button type="button" id="themeToggle" class="theme-toggle">旧デザイン</button><!--__TIER_LINK__--><!--__REPORT_LINK__--></p></header>
+<header><div class="kicker">SHADOWVERSE WORLDS BEYOND · UNLIMITED</div><h1>ビヨンドランキング</h1><p class="intro">クラス別ランキングの到達記録から、プレイヤーの最高CRと達成回数を集計。</p><p class="theme-row"><button type="button" id="themeToggle" class="theme-toggle">旧デザイン</button><!--__REPORT_LINK__--><!--__TIER_LINK__--></p></header>
 <nav class="jump" aria-label="ページ内リンク"><div class="jump-in"><a href="#filterTitle">条件</a><a href="#rankingTitle">プレイヤー別</a><a href="#scoreTitle">総合スコア</a><a href="#averageTitle">平均CR</a></div></nav>
 <main>
 <section class="panel" aria-labelledby="filterTitle"><h2 id="filterTitle">対象を選ぶ</h2><div class="toolbar">

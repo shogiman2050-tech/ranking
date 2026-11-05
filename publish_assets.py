@@ -27,7 +27,7 @@ def publish(ROOT, out, seasons):
               if report_url else '')
     report_link = (f'<a class="report-link" href="{html.escape(report_url)}">改名・記録の誤りを報告</a>' if report_url else '')
     tier_url = site.get('tierUrl', '').strip()
-    tier_link = (f'<a class="report-link" href="{html.escape(tier_url)}">環境Tier表 →</a>' if tier_url else '')
+    tier_link = (f'<a class="report-link tier-link" href="{html.escape(tier_url)}">環境Tier表 →</a>' if tier_url else '')
     template = (ROOT / 'page.html').read_text(encoding='utf-8')
     for marker in ('/*__DATA__*/', '/*__SEASONS__*/', '<!--__GA__-->'):
         if marker not in template:
