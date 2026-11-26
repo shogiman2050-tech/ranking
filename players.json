@@ -140,6 +140,14 @@
       ],
       "confirmed": true,
       "confirmation": "2026-11-05 ユーザー確認（同一人物）"
+    },
+    {
+      "canonical": "走地性",
+      "names": [
+        "Serenity"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-11-26 ユーザー確認（Serenity から走地性へ改名、同一人物）"
     }
   ],
   "record_identities": {},
