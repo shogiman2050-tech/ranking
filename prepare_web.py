@@ -8,4 +8,3 @@ for f in (p/'dist').iterdir():
 seasons=json.loads((p/'players.json').read_text())['seasons']
 report=(p/'report.html').read_text().replace('__SEASONS__',''.join('<option>'+html.escape(s)+'</option>' for s in seasons))
 (p/'app/report/content.ts').write_text('export default '+json.dumps(report,ensure_ascii=False)+';')
-(p/'app/report/route.ts').write_text('import html from "./content"; export function GET(){return new Response(html,{headers:{"Content-Type":"text/html; charset=utf-8"}})}')

@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers';
+import { SECURITY_HEADERS } from '../../../lib/security-headers';
 export async function POST(req: Request) {
- const reply=(data:unknown,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store'}});
+ const reply=(data:unknown,status=200)=>Response.json(data,{status,headers:{...SECURITY_HEADERS,'Cache-Control':'no-store'}});
  if(req.headers.get('origin')!==new URL(req.url).origin)return reply({error:'ページを開き直して送信してください。'},403);
  if(!req.headers.get('content-type')?.includes('application/json'))return reply({error:'形式が正しくありません。'},415);
  const reader=req.body?.getReader();if(!reader)return reply({error:'内容が空です。'},400);

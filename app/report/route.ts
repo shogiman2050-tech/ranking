@@ -1,1 +1,3 @@
-import html from "./content"; export function GET(){return new Response(html,{headers:{"Content-Type":"text/html; charset=utf-8"}})}
+import html from "./content";
+import { htmlResponse } from "../../lib/security-headers";
+export function GET(){return htmlResponse(html)}
