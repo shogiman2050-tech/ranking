@@ -34,11 +34,11 @@ class ValidationTests(unittest.TestCase):
         self.assertNotEqual(out[0]['personKey'],out[1]['personKey'])
     def test_all_records_preserved(self):
         raw=json.loads((ROOT/'records.json').read_text()); out, errors, _=prepare(raw,self.config)
-        self.assertFalse(errors); self.assertEqual(len(out),2370)
+        self.assertFalse(errors); self.assertEqual(len(out),len(raw))
         aa=[r for r in out if r['name']=='あ']
         self.assertEqual(1,len({r['personKey'] for r in aa}))
         mishadow=[r for r in out if r['name']=='頑張れMishadow']
-        self.assertEqual(len(mishadow),12)
+        self.assertEqual(len(mishadow),sum(r['name'] in ('頑張れMishadow','紫香楽通') for r in raw))
         self.assertEqual(len({r['personKey'] for r in mishadow}),1)
 
 if __name__=='__main__': unittest.main()

@@ -120,7 +120,7 @@ const pkey=r=>r.personKey||r.name;
 const DATA=seed;let active='';const PAGE=50;let limit=PAGE;
 
 // 選択肢をデータから作る
-const seasonOpts=SEASON_ORDER.map((s,i)=>`<option value="${i}">${escapeHTML(s.replace("・アナテマ", "").replace("・オブ・デスティニー", "").replace("・レヴナント", ""))}</option>`).join('');
+const seasonOpts=SEASON_ORDER.map((s,i)=>`<option value="${i}">${escapeHTML(s.replace("・アナテマ", "").replace("・オブ・デスティニー", "").replace("・レヴナント", "").replace("神殺事件", ""))}</option>`).join('');
 $('#fromSeason').innerHTML=seasonOpts;$('#toSeason').innerHTML=seasonOpts;$('#toSeason').value=String(SEASON_ORDER.length-1);
 $('#classFilter').insertAdjacentHTML('beforeend',CLASS_ORDER.map(c=>`<option>${escapeHTML(c)}</option>`).join(''));
 $('#coverage').textContent=`対象：${SEASON_ORDER[0].replace(' ','')}から${SEASON_ORDER[SEASON_ORDER.length-1].replace(' ','')}`;
