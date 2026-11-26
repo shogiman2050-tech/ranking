@@ -8,8 +8,9 @@
 Shadowverse: Worlds Beyond のアンリミテッドについて、ゲーム内ランキング動画などから収集した最終Beyond到達記録を閲覧・集計する非公式サイト。
 動画を自動で完全に読み取る仕組みは完成していない。現行運用はJSONデータを確認・編集して再ビルドする方式。
 
-- 公開サイト：https://shadowverse-unlimited-beyond-ranking.jyu785.chatgpt.site
-- 修正フォーム：https://shadowverse-unlimited-beyond-ranking.jyu785.chatgpt.site/report
+- **正式な公開サイト（2026-11-26〜）**：https://unlimited-beyond-ranking.yura-yura.workers.dev （Cloudflare Workers + D1。公開手順は docs/CLOUDFLARE.md）
+- 修正フォーム：https://unlimited-beyond-ranking.yura-yura.workers.dev/report
+- 旧サイト（更新停止）：https://shadowverse-unlimited-beyond-ranking.jyu785.chatgpt.site 。以下のSites関連情報は旧サイトの記録
 - 公開範囲：public
 - 最新保存版：17（同版の公開成功を前の作業で確認）
 - ソースcommit：`2b411997fac4a51f7a6c80ae6daf441da1bd563e`

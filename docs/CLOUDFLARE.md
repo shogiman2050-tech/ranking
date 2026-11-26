@@ -34,6 +34,11 @@ npm run deploy:cloudflare
 `site.json` の `siteUrl` と `reportUrl` を新URLに書き換えて再公開する（canonical・OGP・sitemap・robots が新URLで再生成される）。
 旧サイト（chatgpt.site）には新URLへの案内を出すか、閉じるかを決める。
 
+## 現在の正式公開（2026-11-26）
+
+`https://unlimited-beyond-ranking.yura-yura.workers.dev/` を正式URLとし、`site.json` の `siteUrl`・`reportUrl` も切り替え済み。
+D1：`unlimited-beyond-ranking-reports`（マイグレーション適用済み、`correction_reports` あり）。
+
 ## 修正報告の確認
 
 ```sh
