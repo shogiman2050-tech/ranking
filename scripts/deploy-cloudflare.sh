@@ -8,6 +8,10 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# 環境側の変数名が小文字混じりでも拾う。D1のIDは秘密ではないので既定値を持つ
+export CLOUDFLARE_API_TOKEN="${CLOUDFLARE_API_TOKEN:-${cloudflare_API_TOKEN:-}}"
+export CLOUDFLARE_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-${cloudflare_account_ID:-}}"
+export CF_D1_DATABASE_ID="${CF_D1_DATABASE_ID:-da2819a7-e34b-4178-a706-a7bdd73217b6}"
 : "${CLOUDFLARE_API_TOKEN:?CLOUDFLARE_API_TOKEN を設定してください}"
 : "${CLOUDFLARE_ACCOUNT_ID:?CLOUDFLARE_ACCOUNT_ID を設定してください}"
 : "${CF_D1_DATABASE_ID:?CF_D1_DATABASE_ID を設定してください}"
@@ -40,3 +44,10 @@ node "$WRANGLER" d1 migrations apply "$CF_D1_DATABASE_NAME" --remote --config "$
 
 echo "== デプロイ"
 node "$WRANGLER" deploy --config "$CONFIG"
+
+# 修正報告のメール通知用キー。環境変数にあるときだけ Worker のシークレットへ登録する
+RESEND_API_KEY="${RESEND_API_KEY:-${resend_API_KEY:-}}"
+if [ -n "$RESEND_API_KEY" ]; then
+  echo "== メール通知キーを登録"
+  printf '%s' "$RESEND_API_KEY" | node "$WRANGLER" secret put RESEND_API_KEY --config "$CONFIG"
+fi

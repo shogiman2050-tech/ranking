@@ -22,25 +22,27 @@
         "RYW│しゔァ",
         "RYW│レゔァ",
         "RYW | しう゛ァ",
-        "RYW | しづァ"
+        "RYW | しづァ",
+        "RYW | レう゛ァ"
       ],
       "confirmed": true
     },
     {
-      "canonical": "C／O／T／D",
+      "canonical": "C/O/T/D",
       "names": [
-        "C/O/T/D"
+        "C／O／T／D"
       ],
       "confirmed": true,
-      "confirmation": "2026-10-29 ユーザーの統合指示"
+      "confirmation": "2026-11-05 再録照合レポートの表記統一"
     },
     {
-      "canonical": "『蒼』@オーキス推し",
+      "canonical": "『蒼』 @オーキス推し",
       "names": [
+        "『蒼』@オーキス推し",
         "「蒼」@オーキス推し"
       ],
       "confirmed": true,
-      "confirmation": "2026-10-29 ユーザーの統合指示"
+      "confirmation": "2026-11-05 再録照合レポートの表記統一"
     },
     {
       "canonical": "⊂((・x・))⊃",
@@ -51,12 +53,12 @@
       "confirmation": "2026-10-29 ユーザーの統合指示"
     },
     {
-      "canonical": "たいみー山下",
+      "canonical": "たいみー 山下",
       "names": [
-        "たいみー 山下"
+        "たいみー山下"
       ],
       "confirmed": true,
-      "confirmation": "2026-10-29 ユーザーの統合指示"
+      "confirmation": "2026-11-05 再録照合レポートの表記統一"
     },
     {
       "canonical": "招待コードzGnzsUn",
@@ -100,12 +102,12 @@
       "confirmation": "2026-10-29 ユーザーの統合指示"
     },
     {
-      "canonical": "玉蘭花秀麗",
+      "canonical": "王蘭花秀麗",
       "names": [
-        "王蘭花秀麗"
+        "玉蘭花秀麗"
       ],
       "confirmed": true,
-      "confirmation": "2026-10-29 ユーザーの統合指示"
+      "confirmation": "2026-11-05 再録照合レポートの表記統一"
     },
     {
       "canonical": "ウィング",
@@ -116,12 +118,266 @@
       "confirmation": "2026-10-29 ユーザーの統合指示"
     },
     {
-      "canonical": "あ",
-      "names": [],
+      "canonical": "守護次元　プリノウズ愛",
+      "names": [
+        "守護次元 プリノウズ愛"
+      ],
       "confirmed": true,
-      "confirmation": "2026-10-30 ユーザー指示で同名を統合",
-      "allow_multiple_records_per_slot": true
+      "confirmation": "2026-11-05 再録照合レポート（全角空白1つに統一）"
+    },
+    {
+      "canonical": "幡田　零",
+      "names": [
+        "幡田 零"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-11-05 再録照合レポート（空白の全角・半角違いのみ）"
+    },
+    {
+      "canonical": "RYW | かたひら",
+      "names": [
+        "RYW｜かたひら"
+      ],
+      "confirmed": true,
+      "confirmation": "2026-11-05 ユーザー確認（同一人物）"
     }
   ],
-  "record_identities": {}
+  "record_identities": {},
+  "person_identities": [
+    {
+      "id": "もりもりごはんパワー",
+      "label": "旧もりもりごはんパワー",
+      "confirmation": "2026-11-05 ユーザー確認（初期称号・初期アイコン。表示名は「あ」）",
+      "records": [
+        {
+          "season": "クロニクル・オブ・デスティニー 前半",
+          "className": "エルフ",
+          "rank": 40,
+          "cr": 1854,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "エルフ",
+          "rank": 27,
+          "cr": 1867,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "エルフ",
+          "rank": 14,
+          "cr": 1861,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "進藤",
+      "label": "旧進藤",
+      "confirmation": "2026-11-05 ユーザー確認（元「進藤」・スタチウム・初期称号。表示名は「あ」）",
+      "records": [
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "ナイトメア",
+          "rank": 64,
+          "cr": 1850,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "a（旧あ）",
+      "label": "旧あ",
+      "confirmation": "2026-11-05 ユーザー確認（「あ」から「a」に改名した人。他の「a」とは別人として扱う）",
+      "records": [
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "ビショップ",
+          "rank": 14,
+          "cr": 1854,
+          "name": "a"
+        }
+      ]
+    },
+    {
+      "id": "Player（旧ビバチー）",
+      "label": "旧ビバチー",
+      "confirmation": "2026-11-05 ユーザー確認（初期称号・初期アイコン）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 前半",
+          "className": "ナイトメア",
+          "rank": 28,
+          "cr": 1857,
+          "name": "Player"
+        }
+      ]
+    },
+    {
+      "id": "Player（旧でかぱい）",
+      "label": "旧でかぱい",
+      "confirmation": "2026-11-05 ユーザー確認（ララアンセムアイコン・ニーゲルヘリア神殺事件GM称号）",
+      "records": [
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ウィッチ",
+          "rank": 77,
+          "cr": 1854,
+          "name": "Player"
+        }
+      ]
+    },
+    {
+      "id": "あ（塊A）",
+      "label": "エンブレム＋よろしくお願いします",
+      "confirmation": "2026-11-05 ユーザー確認（アイコン・称号の照合）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ロイヤル",
+          "rank": 22,
+          "cr": 1859,
+          "name": "あ"
+        },
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ネメシス",
+          "rank": 45,
+          "cr": 1878,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 前半",
+          "className": "ウィッチ",
+          "rank": 35,
+          "cr": 1895,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "ウィッチ",
+          "rank": 78,
+          "cr": 1877,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "ネメシス",
+          "rank": 50,
+          "cr": 1856,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "ウィッチ",
+          "rank": 14,
+          "cr": 1863,
+          "name": "あ"
+        }
+      ],
+      "note": "アズヴォルト後半ウィッチ3・30・49位も同じ見た目だが、同じ枠に3人いるため確実に別アカウント。どれが本人か決められないので3席とも塊Aから外し、それぞれ単独として扱う（2026-11-05 ユーザー判断）"
+    },
+    {
+      "id": "あ（塊B）",
+      "label": "エンブレム＋気紛れで気分屋",
+      "confirmation": "2026-11-05 ユーザー確認（アイコン・称号の照合）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ロイヤル",
+          "rank": 33,
+          "cr": 1856,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "ナイトメア",
+          "rank": 2,
+          "cr": 1878,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ナイトメア",
+          "rank": 20,
+          "cr": 1851,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "あ（塊C）",
+      "label": "エンブレム＋Skybound Dragons 2Pick Cup 優勝",
+      "confirmation": "2026-11-05 ユーザー確認（アイコン・称号の照合）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 前半",
+          "className": "ナイトメア",
+          "rank": 39,
+          "cr": 1852,
+          "name": "あ"
+        },
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ナイトメア",
+          "rank": 20,
+          "cr": 1859,
+          "name": "あ"
+        }
+      ]
+    },
+    {
+      "id": "あ（塊D）",
+      "label": "茶髪の少女アイコン＋よろしくお願いします",
+      "confirmation": "2026-11-05 ユーザー確認（アイコン・称号の照合）",
+      "records": [
+        {
+          "season": "神殺し・アナテマ 後半",
+          "className": "ビショップ",
+          "rank": 75,
+          "cr": 1861,
+          "name": "あ"
+        },
+        {
+          "season": "クロニクル・オブ・デスティニー 後半",
+          "className": "ビショップ",
+          "rank": 20,
+          "cr": 1862,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 前半",
+          "className": "ウィッチ",
+          "rank": 57,
+          "cr": 1851,
+          "name": "あ"
+        },
+        {
+          "season": "アズヴォルト・レヴナント 後半",
+          "className": "ウィッチ",
+          "rank": 69,
+          "cr": 1855,
+          "name": "あ"
+        }
+      ]
+    }
+  ],
+  "split_names": [
+    "あ"
+  ],
+  "split_names_confirmation": "2026-11-05 ユーザー指示：「あ」は統合せず記録ごとに別人として扱う（本人と確認できた記録は person_identities で束ねる）。2026-11-05 アイコン・称号が一致した塊A〜Dは同一人物としてまとめ、残り10席は単独",
+  "suspect_names": [
+    "Sadtopia",
+    "H",
+    "り",
+    "?",
+    "ま",
+    "ぷ",
+    "Y",
+    "h",
+    "よ",
+    "∀"
+  ],
+  "suspect_names_note": "同名の別人が混ざっているかもしれない名前（未確認・統合したまま表示）。2026-11-05 時点"
 }

@@ -24,7 +24,17 @@ def prepare(rows, config):
                 errors.append('別名の競合: ' + name)
             aliases[name] = group['canonical']
     allowed_multiple = {'name:' + g['canonical'] for g in config['aliases'] if g.get('confirmed') and g.get('allow_multiple_records_per_slot')}
+    allowed_multiple |= {'verified:' + hashlib.sha256(g['id'].encode()).hexdigest()[:12] for g in config.get('person_identities', []) if g.get('allow_multiple_records_per_slot')}
     seen_ids, identities, groups, names = set(), defaultdict(list), defaultdict(list), defaultdict(set)
+    # 同名でも別人／改名で同名になった人を、期間・クラス・順位・CR・表示名で指定して分ける
+    person_of = {}
+    for person in config.get('person_identities', []):
+        for spec in person['records']:
+            k = (spec['season'], spec['className'], spec['rank'], spec['cr'], spec['name'])
+            if k in person_of:
+                errors.append('人物指定の重複: ' + str(k))
+            person_of[k] = person
+    used_people = set()
     for raw in rows:
         r = dict(raw)
         rid = record_id(r)
@@ -44,8 +54,16 @@ def prepare(rows, config):
         if original != r['name']:
             r['rawName'] = original
         explicit = config.get('record_identities', {}).get(rid)
-        if explicit:
+        person = person_of.get((r['season'], r['className'], rank, r['cr'], original))
+        if person:
+            used_people.add((r['season'], r['className'], rank, r['cr'], original))
+            # 公開データに旧名が出ないよう、人物IDはハッシュにする
+            key = 'verified:' + hashlib.sha256(person['id'].encode()).hexdigest()[:12]
+        elif explicit:
             key = 'verified:' + explicit
+        elif original in config.get('split_names', []):
+            # 「あ」など、同名でも記録ごとに別人として扱う名前
+            key = 'record:' + rid
         elif original in aliases:
             key = 'name:' + r['name']
         else:
@@ -54,6 +72,8 @@ def prepare(rows, config):
         identities[(r['season'], r['className'], key)].append(r)
         groups[(r['season'], r['className'])].append(r)
         result.append(r)
+    for k in person_of.keys() - used_people:
+        errors.append('人物指定に該当する記録がありません: ' + str(k))
     for key, members in identities.items():
         if len(members) > 1 and key[2] in allowed_multiple:
             notes.append('ユーザー指定の同名統合（全記録保持・個人集計は枠ごと最高CRを採用）: ' + str(key))
