@@ -74,3 +74,13 @@ npx wrangler d1 execute unlimited-beyond-ranking-reports --remote \
 - `RESEND_API_KEY`：https://resend.com に宛先と同じメールアドレスで登録し、API Keys で作ったキーを入れる
   実行環境の環境変数 `RESEND_API_KEY` に入れておけば、`npm run deploy:cloudflare` が公開のたびに自動で登録する。
   差出人は `onboarding@resend.dev`（独自ドメインなしで使える送信元。登録したアドレス宛てにだけ送れる）。
+
+## 独自ドメインへの切り替え（beyond-unlimited-ranking.com 予定）
+
+準備済み：`CF_CUSTOM_DOMAIN`（未指定なら `site.json` の `siteUrl` から自動）で公開すると、Workerにカスタムドメインを付け、`*.workers.dev` へのページ表示（GET/HEAD）を新ドメインへ301転送する。フォーム送信（POST）は転送しない。
+
+1. Cloudflareでドメインを購入する（Domain Registration）。
+2. APIトークンに、そのドメインのゾーンについて `Zone / Zone / Read`・`Zone / DNS / Edit`・`Zone / Workers Routes / Edit` を追加する。
+3. `site.json` の `siteUrl`・`reportUrl` を `https://beyond-unlimited-ranking.com/`・`https://beyond-unlimited-ranking.com/report` に書き換える。
+4. いつも通り `npm run deploy:cloudflare` で公開する。`site.json` の `siteUrl` が workers.dev 以外なら、そのドメインを `CF_CUSTOM_DOMAIN` として自動で使う（明示しても同じ）。
+   ドメインがCloudflareで有効でない場合は公開前に止まる。

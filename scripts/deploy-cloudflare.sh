@@ -5,6 +5,7 @@
 #   CLOUDFLARE_ACCOUNT_ID  CloudflareのアカウントID
 #   CF_D1_DATABASE_ID      `wrangler d1 create` で作ったDBのID
 # 任意: CF_WORKER_NAME（既定 unlimited-beyond-ranking）, CF_D1_DATABASE_NAME（既定 unlimited-beyond-ranking-reports）
+#       CF_CUSTOM_DOMAIN（例 beyond-unlimited-ranking.com。設定するとWorkerに独自ドメインを付け、workers.devから転送）
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -17,6 +18,27 @@ export CF_D1_DATABASE_ID="${CF_D1_DATABASE_ID:-da2819a7-e34b-4178-a706-a7bdd7321
 : "${CF_D1_DATABASE_ID:?CF_D1_DATABASE_ID を設定してください}"
 export CF_WORKER_NAME="${CF_WORKER_NAME:-unlimited-beyond-ranking}"
 export CF_D1_DATABASE_NAME="${CF_D1_DATABASE_NAME:-unlimited-beyond-ranking-reports}"
+
+# site.json の公開URLが workers.dev 以外なら、そのドメインを独自ドメインとして使う
+if [ -z "${CF_CUSTOM_DOMAIN:-}" ]; then
+  CF_CUSTOM_DOMAIN=$(python3 -c 'import json,urllib.parse as u;h=u.urlparse(json.load(open("site.json"))["siteUrl"]).hostname or "";print("" if h.endswith(".workers.dev") else h)')
+fi
+export CF_CUSTOM_DOMAIN="${CF_CUSTOM_DOMAIN:-}"
+if [ -n "$CF_CUSTOM_DOMAIN" ]; then
+  echo "== 独自ドメインの確認: $CF_CUSTOM_DOMAIN"
+  # ドメインがこのCloudflareアカウントにあり、トークンで見えること
+  zone=$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones?name=$CF_CUSTOM_DOMAIN" \
+    | python3 -c 'import json,sys;r=json.load(sys.stdin).get("result") or [];print(r[0]["status"] if r else "")')
+  if [ "$zone" != "active" ]; then
+    echo "$CF_CUSTOM_DOMAIN がCloudflareで有効になっていない（状態: ${zone:-見つからない}）。ドメイン購入とトークンの Zone 権限を確認してください" >&2
+    exit 1
+  fi
+  # 公開URLの設定が新ドメインになっていること（canonical・OGP・sitemap用）
+  if ! python3 -c 'import json,sys,urllib.parse as u;s=json.load(open("site.json"));sys.exit(0 if u.urlparse(s["siteUrl"]).hostname==sys.argv[1] else 1)' "$CF_CUSTOM_DOMAIN"; then
+    echo "site.json の siteUrl が $CF_CUSTOM_DOMAIN になっていません。先に書き換えてください" >&2
+    exit 1
+  fi
+fi
 
 echo "== テスト"
 python3 -m unittest test_build

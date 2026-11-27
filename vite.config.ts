@@ -15,6 +15,9 @@ const { d1, r2 } = hostingConfig;
 // 未設定ならローカル用のプレースホルダーのまま。
 const workerName = process.env.CF_WORKER_NAME || "unlimited-beyond-ranking";
 const d1DatabaseName = process.env.CF_D1_DATABASE_NAME || "unlimited-beyond-ranking-reports";
+// 独自ドメイン（例: beyond-unlimited-ranking.com）。設定するとWorkerにカスタムドメインを付け、
+// workers.dev へのGET/HEADをそのドメインへ301転送する。未設定なら今まで通り。
+const customDomain = process.env.CF_CUSTOM_DOMAIN?.trim() || "";
 const d1DatabaseId =
   process.env.CF_D1_DATABASE_ID || SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
 
@@ -26,6 +29,9 @@ const localBindingConfig = {
   name: workerName,
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
+  ...(customDomain
+    ? { routes: [{ pattern: customDomain, custom_domain: true }], vars: { CANONICAL_HOST: customDomain } }
+    : {}),
   d1_databases: d1
     ? [
         {

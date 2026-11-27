@@ -5,5 +5,7 @@ declare namespace Cloudflare {
     // 修正報告のメール通知（Resend）。両方そろったときだけ送る
     RESEND_API_KEY?: string;
     REPORT_EMAIL_TO?: string;
+    // 独自ドメイン（CF_CUSTOM_DOMAIN を付けてビルドしたときだけ入る）
+    CANONICAL_HOST?: string;
   }
 }

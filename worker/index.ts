@@ -4,6 +4,17 @@ import type { ConnectorBinding } from "../lib/connector-contract.mjs";
 
 const worker = {
   fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
+    // 独自ドメイン運用時は workers.dev のページ表示を正式URLへ寄せる（フォーム送信などGET/HEAD以外は触らない）
+    const canonical = env.CANONICAL_HOST;
+    if (canonical && (request.method === "GET" || request.method === "HEAD")) {
+      const url = new URL(request.url);
+      if (url.hostname.endsWith(".workers.dev") && url.hostname !== canonical) {
+        url.protocol = "https:";
+        url.hostname = canonical;
+        url.port = "";
+        return Response.redirect(url.toString(), 301);
+      }
+    }
     let binding = ctx.props?.CONNECTORS;
     // Local preview emulates the same request-scoped capability. This branch and
     // the auxiliary service binding are absent from production builds.
