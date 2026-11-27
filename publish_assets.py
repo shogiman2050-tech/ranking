@@ -19,9 +19,18 @@ def publish(ROOT, out, seasons):
                          'url': site_url, 'description': site['description'], 'inLanguage': 'ja',
                          'dateModified': updated}, ensure_ascii=False).replace('</', '<\\/')
     ga_id = site.get('gaId', '').strip()
-    ga = ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + html.escape(ga_id) + '"></script>\n'
-          "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}"
-          "gtag('js',new Date());gtag('config'," + json.dumps(ga_id) + ");</script>") if ga_id else ''
+    # ?notrack=1 を一度開いた端末（ブラウザ）は解析を読み込まない。?notrack=0 で元に戻す
+    ga = ("<script>(function(){var k='sv-notrack',q=new URLSearchParams(location.search),v=q.get('notrack'),off=false;"
+          "try{if(v==='1')localStorage.setItem(k,'1');if(v==='0')localStorage.removeItem(k);off=localStorage.getItem(k)==='1'}catch(e){}"
+          "if(v!==null){q.delete('notrack');var s=q.toString();history.replaceState(null,'',location.pathname+(s?'?'+s:'')+location.hash);"
+          "addEventListener('DOMContentLoaded',function(){var n=document.createElement('div');n.setAttribute('role','status');"
+          "n.textContent=off?'この端末のアクセスは解析に記録しません':'この端末のアクセスを解析に記録します';"
+          "n.style.cssText='position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:50;padding:10px 16px;border-radius:8px;background:#17151f;color:#fff;font-size:14px;box-shadow:0 6px 18px #0003';"
+          "document.body.appendChild(n);setTimeout(function(){n.remove()},4000)})}"
+          "if(off)return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};"
+          "gtag('js',new Date());gtag('config'," + json.dumps(ga_id) + ");"
+          "var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+" + json.dumps(ga_id) + ";"
+          "document.head.appendChild(g)})();</script>") if ga_id else ''
     report_url = site.get('reportUrl', '').strip()
     report = (f'<p class="small">改名・記録の誤り・記録漏れは<a href="{html.escape(report_url)}">修正報告フォーム</a>から教えてください。</p>'
               if report_url else '')
