@@ -226,6 +226,7 @@ th,td{font-size:13px;padding:8px}
 #ranking tbody td{padding:0}
 }
 .search-box{display:flex;gap:6px;margin:0}.search-box input{flex:1;min-width:0;width:auto}.search-box button{flex:none}
+.tops{min-width:760px}.tops th,.tops td{white-space:normal;vertical-align:top;font-size:12px;line-height:1.5;min-width:88px}.tops td small{display:block;color:var(--muted)}.tops th[scope=row]{min-width:110px}.scroll+h3{margin:22px 0 0}.toplist{margin:8px 0 0;padding-left:1.4em;line-height:1.9;font-size:14px}.toplist small{color:var(--muted)}
 </style>
 <style id="themeClassic" media="not all">
 :root{font-family:Inter,system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#ecf5fa;background:#0b1425;color-scheme:dark;--panel:#15273c;--line:#344e66;--muted:#b9cbd8;--aqua:#6cddd8;--gold:#ffd190}
@@ -278,6 +279,7 @@ th,td{font-size:13px;padding:8px}
 @media(max-width:650px){.sortbar{flex-wrap:wrap;overflow:visible}.chip{min-height:44px}#ranking td.full-periods{grid-column:1/-1;overflow-wrap:anywhere}.name{overflow-wrap:anywhere}#details table,.average-table table{min-width:0}#details thead,.average-table thead{display:none}#details tr,.average-table tr{display:block;padding:10px;border-bottom:1px solid var(--line)}#details td,.average-table td{display:flex;justify-content:space-between;gap:12px;white-space:normal;text-align:right;border:0}#details td:before,.average-table td:before{content:attr(data-label);color:var(--muted);text-align:left}}
 .pchip .pc-s{display:none}.pchip+.pchip::before{content:"、"}
 .search-box{display:flex;gap:6px;margin:0}.search-box input{flex:1;min-width:0;width:auto}.search-box button{flex:none}
+.tops{min-width:760px}.tops th,.tops td{white-space:normal;vertical-align:top;font-size:12px;line-height:1.5;min-width:88px}.tops td small{display:block;color:var(--muted)}.tops th[scope=row]{min-width:110px}.scroll+h3{margin:22px 0 0}.toplist{margin:8px 0 0;padding-left:1.4em;line-height:1.9;font-size:14px}.toplist small{color:var(--muted)}
 </style>
 <style>.theme-row{margin:10px 0 0}.theme-toggle{min-height:34px;padding:5px 14px;font-size:13px;border-radius:999px;white-space:nowrap}.theme-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.report-link{display:inline-flex;align-items:center;min-height:34px;padding:5px 14px;font-size:13px;font-weight:700;border-radius:999px;border:1px solid currentColor;text-decoration:none;color:inherit;white-space:nowrap}.report-link:hover{opacity:.75}.tier-link{margin-left:auto}.notes ul{margin:0;padding-left:1.2em}.notes li{margin:0 0 6px}.notes .howto{margin-top:10px}</style>
 <script>
@@ -319,6 +321,7 @@ function applyTheme(classic){document.documentElement.classList.toggle('classic'
 <div class="chart"><h3 class="chart-h">クラス別の平均CR</h3><p class="small" id="barsSub"></p><div id="avgBars" class="bars"></div></div>
 <div class="chart"><h3 class="chart-h">期間 × クラス</h3><p class="small">明るいほど平均CRが高い。マスに触れると人数と最高CRが出ます。</p><div id="heat" class="heat"></div><div class="scale" aria-hidden="true"><span id="scaleLo"></span><i></i><span id="scaleHi"></span></div></div>
 <details class="howto"><summary>表で見る</summary><div class="toolbar"><div class="sort-control"><span id="averageSortLabel">クラスの並べ替え</span><select id="averageSort" hidden aria-hidden="true" tabindex="-1"><option value="period">環境の順</option><option value="average">平均CRが高い順</option><option value="count">ビヨンド人数が多い順</option></select><div class="sort-chips" id="averageSortChips" role="group" aria-labelledby="averageSortLabel"></div></div></div><div class="scroll average-table"><table id="averages"><thead><tr><th>環境</th><th>期間</th><th>クラス</th><th class="num">ビヨンド人数</th><th class="num">平均CR</th><th class="num">最高CR</th></tr></thead><tbody></tbody></table></div></details></section>
+<!--__STATIC__-->
 <section class="panel notes" aria-labelledby="notesTitle"><h2 id="notesTitle">表記と集計について</h2><ul class="small">
 <li>確認済みの別名は統合し、同名は同一人物として集計しています。「あ」はアイコン・称号などで同一人物と確認できた記録だけをまとめ、それ以外は記録ごとに別人として扱います。</li>
 <li>同じ期間・クラスに同一人物の記録が複数ある場合、個人の回数・スコアは最高CRの記録を1回分として集計し、詳細とクラス平均には全記録を残します。</li>

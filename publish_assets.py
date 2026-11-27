@@ -1,6 +1,39 @@
 import html, json, re, shutil, sys
 from datetime import datetime, timedelta, timezone
 
+CLASS_ORDER = ['エルフ', 'ロイヤル', 'ウィッチ', 'ドラゴン', 'ナイトメア', 'ビショップ', 'ネメシス']
+
+def static_summary(out, seasons):
+    """JavaScriptなしでも読める要約（検索エンジン・審査のクローラー向けにも、画面にもそのまま出す）"""
+    e = html.escape
+    people = {r['personKey'] for r in out}
+    first, last = seasons[0].replace(' ', ''), seasons[-1].replace(' ', '')
+    about = (f'<section class="panel" aria-labelledby="aboutTitle"><h2 id="aboutTitle">このサイトについて</h2>'
+             f'<p>シャドウバース ワールズビヨンドのアンリミテッドで、クラス別ランキングに載ったビヨンド到達者（CR1850以上）の記録を、'
+             f'ゲーム内ランキングの動画から確認して集めています。対象は{e(first)}から{e(last)}までの{len(seasons)}期間・7クラスで、'
+             f'記録は{len(out):,}件、プレイヤーは{len(people):,}人です。</p>'
+             '<p>上のプレイヤー別ランキングでは、期間やクラスを選んで最高CR・ビヨンド到達回数・全クラス到達（全ビヨ）の回数で並べ替えられます。'
+             '総合スコアは順位を点数にした合計、平均CRは環境とクラスごとの到達者の平均です。名前を押すと、その人の環境ごとの記録を見られます。</p></section>')
+    tops = {}
+    for r in out:
+        if r['rank'] == 1:
+            tops.setdefault((r['season'], r['className']), []).append(r)
+    head = ''.join(f'<th scope="col">{e(c)}</th>' for c in CLASS_ORDER)
+    rows = []
+    for s in seasons:
+        cells = []
+        for c in CLASS_ORDER:
+            rs = tops.get((s, c), [])
+            cells.append('<td>' + ('／'.join(e(r['name']) for r in rs) + f'<small>CR {rs[0]["cr"]}</small>' if rs else '—') + '</td>')
+        rows.append(f'<tr><th scope="row">{e(s)}</th>{"".join(cells)}</tr>')
+    best = sorted(out, key=lambda r: (-r['cr'], seasons.index(r['season']), r['rank']))[:10]
+    toplist = ''.join(f'<li>{e(r["name"])}　CR {r["cr"]} <small>（{e(r["season"])}・{e(r["className"])} {r["rank"]}位）</small></li>' for r in best)
+    return (about + '<section class="panel" aria-labelledby="topsTitle"><h2 id="topsTitle">環境・クラス別の1位</h2>'
+            '<p class="small">各期間のクラス別ランキングで1位だったプレイヤーと、そのときのCRです。同率1位は「／」で並べています。</p>'
+            f'<div class="scroll"><table class="tops"><thead><tr><th scope="col">期間</th>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+            '<h3>歴代の最高CR 上位10件</h3>'
+            f'<ol class="toplist">{toplist}</ol></section>')
+
 def publish(ROOT, out, seasons):
     errors, warnings, notes = [], [], []
     site = json.loads((ROOT / 'site.json').read_text(encoding='utf-8'))
@@ -43,7 +76,7 @@ def publish(ROOT, out, seasons):
             print(f'page.html に {marker} がありません')
             sys.exit(1)
     suspects = json.dumps(json.loads((ROOT / 'players.json').read_text(encoding='utf-8')).get('suspect_names', []), ensure_ascii=False).replace('</', '<\\/')
-    page = (template.replace('/*__SUSPECT__*/', suspects).replace('/*__DATA__*/', data).replace('/*__SEASONS__*/', season_json)
+    page = (template.replace('<!--__STATIC__-->', static_summary(out, seasons)).replace('/*__SUSPECT__*/', suspects).replace('/*__DATA__*/', data).replace('/*__SEASONS__*/', season_json)
             .replace('<!--__GA__-->', ga).replace('<!--__REPORT__-->', report).replace('<!--__REPORT_LINK__-->', report_link)
             .replace('<!--__TIER_LINK__-->', tier_link)
             .replace('<!--__GA_NOTE__-->', ('アクセス解析にGoogle Analyticsを使用しています（<a href="/privacy">プライバシーポリシー</a>）。' if ga_id else ''))
