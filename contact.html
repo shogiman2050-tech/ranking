@@ -1,0 +1,11 @@
+<main><a href="/">← ランキングに戻る</a><h1>お問い合わせ</h1><p>当サイトへのご意見・ご質問、掲載内容の削除のご希望などはこちらからどうぞ。記録の誤りや改名は<a href="/report">修正報告フォーム</a>の方が早く反映できます。</p><form id="report">
+<input type="hidden" name="kind" value="お問い合わせ">
+<label for="player">お名前・ハンドルネーム <small>任意</small></label><input id="player" name="player" maxlength="100" autocomplete="nickname">
+<label for="correctedName">件名 <small>必須</small></label><input id="correctedName" name="correctedName" maxlength="100" required>
+<label for="details">お問い合わせ内容 <small>必須</small></label><textarea id="details" name="details" required maxlength="2500"></textarea>
+<label for="contact">返信先（メールアドレスやXのIDなど） <small>返信が必要な場合</small></label><input id="contact" name="contact" maxlength="150">
+<input type="hidden" name="season" value=""><input type="hidden" name="className" value=""><input type="hidden" name="evidence" value="">
+<div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<p><small>送信された内容は公開しません。取り扱いは<a href="/privacy">プライバシーポリシー</a>をご覧ください。パスワードなどは書かないでください。</small></p>
+<button id="send">送信</button><p id="status" role="status" aria-live="polite"></p></form><!--FOOTER--></main>
+<script>const form=document.querySelector('form'),status=document.querySelector('#status'),button=document.querySelector('#send');form.addEventListener('submit',async e=>{e.preventDefault();button.disabled=true;status.textContent='送信中…';try{const r=await fetch('/api/reports',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});const d=await r.json();if(!r.ok)throw new Error(d.error||'送信に失敗しました。');form.reset();status.textContent='受け付けました。ありがとうございます。\n受付番号：'+d.id;button.textContent='別のお問い合わせを送信'}catch(e){status.textContent=e.message||'通信に失敗しました。入力内容は残っています。'}finally{button.disabled=false}});</script>

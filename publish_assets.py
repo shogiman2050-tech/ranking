@@ -46,7 +46,7 @@ def publish(ROOT, out, seasons):
     page = (template.replace('/*__SUSPECT__*/', suspects).replace('/*__DATA__*/', data).replace('/*__SEASONS__*/', season_json)
             .replace('<!--__GA__-->', ga).replace('<!--__REPORT__-->', report).replace('<!--__REPORT_LINK__-->', report_link)
             .replace('<!--__TIER_LINK__-->', tier_link)
-            .replace('<!--__GA_NOTE__-->', 'アクセス解析にGoogle Analyticsを使用しています。' if ga_id else '')
+            .replace('<!--__GA_NOTE__-->', ('アクセス解析にGoogle Analyticsを使用しています（<a href="/privacy">プライバシーポリシー</a>）。' if ga_id else ''))
             .replace('{{JSONLD}}', jsonld).replace('{{SITE_URL}}', html.escape(site_url))
             .replace('{{SITE_NAME}}', html.escape(site['siteName']))
             .replace('{{DESCRIPTION}}', html.escape(site['description'])).replace('{{UPDATED}}', updated))
@@ -64,7 +64,9 @@ def publish(ROOT, out, seasons):
     (dist / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {site_url}sitemap.xml\n', encoding='utf-8')
     (dist / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        f'  <url><loc>{html.escape(site_url)}</loc><lastmod>{updated}</lastmod></url>\n</urlset>\n', encoding='utf-8')
+        f'  <url><loc>{html.escape(site_url)}</loc><lastmod>{updated}</lastmod></url>\n'
+        + ''.join(f'  <url><loc>{html.escape(site_url)}{p}</loc></url>\n' for p in ('report', 'contact', 'privacy'))
+        + '</urlset>\n', encoding='utf-8')
     (dist / '404.html').write_text(
         '<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
         f'<title>ページが見つかりません｜{html.escape(site["siteName"])}</title><meta name="robots" content="noindex">'
