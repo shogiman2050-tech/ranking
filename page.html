@@ -225,6 +225,7 @@ th,td{font-size:13px;padding:8px}
 #ranking td.full-periods::before{display:none}
 #ranking tbody td{padding:0}
 }
+.search-box{display:flex;gap:6px;margin:0}.search-box input{flex:1;min-width:0;width:auto}.search-box button{flex:none}
 </style>
 <style id="themeClassic" media="not all">
 :root{font-family:Inter,system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#ecf5fa;background:#0b1425;color-scheme:dark;--panel:#15273c;--line:#344e66;--muted:#b9cbd8;--aqua:#6cddd8;--gold:#ffd190}
@@ -276,6 +277,7 @@ th,td{font-size:13px;padding:8px}
 
 @media(max-width:650px){.sortbar{flex-wrap:wrap;overflow:visible}.chip{min-height:44px}#ranking td.full-periods{grid-column:1/-1;overflow-wrap:anywhere}.name{overflow-wrap:anywhere}#details table,.average-table table{min-width:0}#details thead,.average-table thead{display:none}#details tr,.average-table tr{display:block;padding:10px;border-bottom:1px solid var(--line)}#details td,.average-table td{display:flex;justify-content:space-between;gap:12px;white-space:normal;text-align:right;border:0}#details td:before,.average-table td:before{content:attr(data-label);color:var(--muted);text-align:left}}
 .pchip .pc-s{display:none}.pchip+.pchip::before{content:"、"}
+.search-box{display:flex;gap:6px;margin:0}.search-box input{flex:1;min-width:0;width:auto}.search-box button{flex:none}
 </style>
 <style>.theme-row{margin:10px 0 0}.theme-toggle{min-height:34px;padding:5px 14px;font-size:13px;border-radius:999px;white-space:nowrap}.theme-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.report-link{display:inline-flex;align-items:center;min-height:34px;padding:5px 14px;font-size:13px;font-weight:700;border-radius:999px;border:1px solid currentColor;text-decoration:none;color:inherit;white-space:nowrap}.report-link:hover{opacity:.75}.tier-link{margin-left:auto}.notes ul{margin:0;padding-left:1.2em}.notes li{margin:0 0 6px}.notes .howto{margin-top:10px}</style>
 <script>
@@ -294,7 +296,7 @@ function applyTheme(classic){document.documentElement.classList.toggle('classic'
 <label class="field"><span>開始期間</span><select id="fromSeason"></select></label>
 <label class="field"><span>終了期間</span><select id="toSeason"></select></label>
 <label class="field"><span>クラス</span><select id="classFilter"><option value="">全クラス</option></select></label>
-<label class="field grow"><span>プレイヤー名</span><input id="search" type="search" placeholder="名前で検索（全角半角・かなカナは区別しません）"></label></div>
+<div class="field grow"><span id="searchLabel">プレイヤー名</span><form class="search-box" id="searchForm" role="search"><input id="search" type="search" enterkeyhint="search" aria-labelledby="searchLabel" placeholder="名前で検索（全角半角・かなカナは区別しません）"><button type="submit">検索</button></form></div></div>
 <div class="metrics"><div class="metric">到達記録<b id="recordCount">—</b></div><div class="metric">プレイヤー<b id="playerCount">—</b></div><div class="metric">最高CR<b id="topCR">—</b></div></div>
 <div class="share"><button id="copyLink" type="button">この条件のリンクをコピー</button><span id="copyNote" class="small" role="status"></span></div></section>
 <section class="panel" aria-labelledby="rankingTitle"><h2 id="rankingTitle">プレイヤー別ランキング</h2><div class="conditions"><strong>達成条件</strong><div class="toolbar">
@@ -408,6 +410,7 @@ players.sort((a,b)=>diff(score(b),score(a))||diff(tie(b),tie(a))||a.name.localeC
  saveURL();
 }
 for(const id of Object.values(PARAMS))$('#'+id).addEventListener('input',()=>{limit=PAGE;render()});
+$('#searchForm').addEventListener('submit',e=>{e.preventDefault();limit=PAGE;render();$('#search').blur();$('#rankingTitle').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})});
 $('#more').addEventListener('click',()=>{limit+=PAGE;render()});
 $('#ranking').addEventListener('click',e=>{const b=e.target.closest('[data-key]');if(!b)return;active=decodeURIComponent(b.dataset.key);render();$('#details').scrollIntoView({block:'nearest',behavior:'smooth'})});
 // ===== 総合スコア（式はシャドラボ準拠） =====
