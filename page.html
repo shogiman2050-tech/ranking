@@ -204,6 +204,27 @@ th,td{font-size:13px;padding:8px}
 #details td,.average-table td{display:flex;justify-content:space-between;gap:12px;white-space:normal;text-align:right;border:0}
 #details td:before,.average-table td:before{content:attr(data-label);color:var(--muted);text-align:left;font-family:var(--body)}
 }
+/* シンプル表示（2026-11-27）：飾りを減らし、全ビヨ達成環境は短い表記のタグに */
+.panel h2{font-family:var(--body);font-weight:700;font-size:18px;letter-spacing:0;padding-left:0;border-left:0}
+.metric,.metric:nth-child(2),.metric:nth-child(3){border-left:1px solid var(--line)}
+.metric b{font-family:var(--body);font-weight:700}
+.full-periods{display:flex;flex-wrap:wrap;gap:3px;max-width:none;min-width:150px;margin-top:0;color:var(--fg);font-weight:400}
+.pchip{display:inline-block;margin:1px 3px 1px 0;font-size:11px;line-height:1.5;padding:0 6px;border-radius:4px;background:var(--panel2);white-space:nowrap}
+.pchip .pc-l{display:none}
+#ranking th,#ranking td{padding-left:7px;padding-right:7px}#ranking th.sortable button{padding:9px 7px}
+#ranking td.full-periods{display:table-cell;min-width:0;width:150px;max-width:150px}#ranking .player-cell{min-width:120px}#ranking th:not(.active) .arrow{display:none}
+@media(max-width:650px){
+#ranking tr{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:10px 12px;border-left:1px solid var(--line)}
+#ranking tr::before{content:"";flex-basis:100%;height:0;order:0}
+#ranking td.order{font-family:var(--body);font-weight:700;font-size:15px;color:var(--muted)}
+#ranking td.player-cell{flex:1 1 0;min-width:0}
+#ranking td.primary{margin-left:auto;border:0;padding:0;font-size:18px;font-family:var(--body);font-weight:700;gap:4px}
+#ranking td.num:not(.primary){display:inline-flex;gap:4px;font-size:13px}
+#ranking td.num:not(.primary)::before{display:inline;font-size:11px}
+#ranking td.full-periods{display:block;order:1;flex-basis:100%;min-width:0;width:auto;max-width:none}
+#ranking td.full-periods::before{display:none}
+#ranking tbody td{padding:0}
+}
 </style>
 <style id="themeClassic" media="not all">
 :root{font-family:Inter,system-ui,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#ecf5fa;background:#0b1425;color-scheme:dark;--panel:#15273c;--line:#344e66;--muted:#b9cbd8;--aqua:#6cddd8;--gold:#ffd190}
@@ -254,6 +275,7 @@ th,td{font-size:13px;padding:8px}
 .sort-control{flex:1 1 100%;min-width:0;font-size:.88rem;color:#c8dce6}.sort-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.sort-chip{border-radius:999px;min-height:44px;padding:9px 15px;background:#102438;border:1px solid #58758b;color:#cbdde7;font-weight:600}.sort-chip:hover{background:#244557}.sort-chip[aria-pressed="true"]{background:#78e3d8;border-color:#78e3d8;color:#08252c;box-shadow:0 0 0 1px #78e3d8;font-weight:800}.sort-chip[aria-pressed="true"]::before{content:'✓ ';} @media(max-width:650px){.sort-chips{gap:7px}.sort-chip{font-size:.82rem;padding:8px 12px}}
 
 @media(max-width:650px){.sortbar{flex-wrap:wrap;overflow:visible}.chip{min-height:44px}#ranking td.full-periods{grid-column:1/-1;overflow-wrap:anywhere}.name{overflow-wrap:anywhere}#details table,.average-table table{min-width:0}#details thead,.average-table thead{display:none}#details tr,.average-table tr{display:block;padding:10px;border-bottom:1px solid var(--line)}#details td,.average-table td{display:flex;justify-content:space-between;gap:12px;white-space:normal;text-align:right;border:0}#details td:before,.average-table td:before{content:attr(data-label);color:var(--muted);text-align:left}}
+.pchip .pc-s{display:none}.pchip+.pchip::before{content:"、"}
 </style>
 <style>.theme-row{margin:10px 0 0}.theme-toggle{min-height:34px;padding:5px 14px;font-size:13px;border-radius:999px;white-space:nowrap}.theme-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.report-link{display:inline-flex;align-items:center;min-height:34px;padding:5px 14px;font-size:13px;font-weight:700;border-radius:999px;border:1px solid currentColor;text-decoration:none;color:inherit;white-space:nowrap}.report-link:hover{opacity:.75}.tier-link{margin-left:auto}.notes ul{margin:0;padding-left:1.2em}.notes li{margin:0 0 6px}.notes .howto{margin-top:10px}</style>
 <script>
@@ -368,7 +390,7 @@ players.sort((a,b)=>diff(score(b),score(a))||diff(tie(b),tie(a))||a.name.localeC
  // 同順位（基準の値が同じなら同じ順位：1,1,3…）
  const scores=players.map(score).sort((a,b)=>diff(b,a)),firstAt=new Map();scores.forEach((v,i)=>{if(!firstAt.has(v))firstAt.set(v,i+1)});players.forEach(p=>p.place=firstAt.get(score(p)));
  $('#caption').textContent=Number($('#fromSeason').value)>Number($('#toSeason').value)?'開始期間が終了期間より後です。期間を選び直してください。':`該当 ${players.length} 人。名前を押すと、環境ごとの記録を表示します。`;
- $('#ranking tbody').innerHTML=players.length?players.slice(0,limit).map(p=>`<tr><td class="order">${p.place}</td><td class="player-cell"><button class="name" type="button" data-key="${escapeHTML(encodeURIComponent(p.key))}">${escapeHTML(p.name)}</button></td>${cols.map(m=>`<td class="num${m===primary?' primary':''}" data-label="${escapeHTML(m[1])}">${escapeHTML(m[2](p))}</td>`).join('')}<td class="full-periods" data-label="全ビヨ達成環境">${escapeHTML(p.fullPeriods.join('、')||'—')}</td></tr>`).join(''):'<tr><td class="empty" colspan="11">該当するプレイヤーがいません。</td></tr>';
+ $('#ranking tbody').innerHTML=players.length?players.slice(0,limit).map(p=>`<tr><td class="order">${p.place}</td><td class="player-cell"><button class="name" type="button" data-key="${escapeHTML(encodeURIComponent(p.key))}">${escapeHTML(p.name)}</button></td>${cols.map(m=>`<td class="num${m===primary?' primary':''}" data-label="${escapeHTML(m[1])}">${escapeHTML(m[2](p))}</td>`).join('')}<td class="full-periods" data-label="全ビヨ達成環境">${p.fullPeriods.length?p.fullPeriods.map(s=>`<span class="pchip" title="${escapeHTML(s)}"><span class="pc-s">${escapeHTML(environmentOf(s).replace(/[・ ].*$/,'').slice(0,3)+periodOf(s).slice(0,1))}</span><span class="pc-l">${escapeHTML(s)}</span></span>`).join(''):'—'}</td></tr>`).join(''):'<tr><td class="empty" colspan="11">該当するプレイヤーがいません。</td></tr>';
  const rest=players.length-limit;$('#more').hidden=rest<=0;$('#more').textContent=`さらに${Math.min(PAGE,rest)}人を表示（残り${rest}人）`;
  const selected=players.find(p=>p.key===active);
  if(!selected){$('#details').hidden=true}else{const p=selected;$('#details').hidden=false;$('#detailTitle').textContent=p.name+' の記録';
