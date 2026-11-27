@@ -30,7 +30,7 @@ const localBindingConfig = {
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
   ...(customDomain
-    ? { routes: [{ pattern: customDomain, custom_domain: true }], vars: { CANONICAL_HOST: customDomain } }
+    ? { routes: [{ pattern: customDomain, custom_domain: true }, { pattern: `www.${customDomain}`, custom_domain: true }], workers_dev: true, vars: { CANONICAL_HOST: customDomain } }
     : {}),
   d1_databases: d1
     ? [

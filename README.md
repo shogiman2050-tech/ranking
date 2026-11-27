@@ -50,7 +50,7 @@ python build_public.py
 
 `python build_public.py` は元データ検査を通した後、`publish_assets.py`でHTML・共有画像・アイコン・robots.txt・sitemap.xml・404ページ・ホスティング用ヘッダーを生成します。最終更新日はビルド時の日本時間です。この段階の `dist` は静的版の中間生成物です。現行サイトの公開は下記「修正報告フォーム」の手順でWorkerをビルドしてください。共有カードがX・LINEに表示されるかは、各サービス側の取得・キャッシュにも依存します。
 
-2026-11-26からCloudflare Workers（https://unlimited-beyond-ranking.yura-yura.workers.dev/）が正式な公開先です。手順は docs/CLOUDFLARE.md。旧chatgpt.siteは更新していません。静的ホスティングへの移転ではフォーム保存処理を別途用意する必要があります。このリポジトリではGitHubの自動公開設定は追加していません。`_headers`と`404.html`の適用方法はホスティング先に依存します。
+2026-11-27からCloudflare Workers（https://beyond-unlimited-ranking.com/）が正式な公開先です。手順は docs/CLOUDFLARE.md。旧chatgpt.siteは更新していません。静的ホスティングへの移転ではフォーム保存処理を別途用意する必要があります。このリポジトリではGitHubの自動公開設定は追加していません。`_headers`と`404.html`の適用方法はホスティング先に依存します。
 
 ## 総合スコア
 

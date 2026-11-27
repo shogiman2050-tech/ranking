@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://unlimited-beyond-ranking.yura-yura.workers.dev/sitemap.xml
+Sitemap: https://beyond-unlimited-ranking.com/sitemap.xml
