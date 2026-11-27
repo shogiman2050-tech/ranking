@@ -81,6 +81,10 @@ npx wrangler d1 execute unlimited-beyond-ranking-reports --remote \
 
 1. Cloudflareでドメインを購入する（Domain Registration）。
 2. APIトークンに、そのドメインのゾーンについて `Zone / Zone / Read`・`Zone / DNS / Edit`・`Zone / Workers Routes / Edit` を追加する。
-3. `site.json` の `siteUrl`・`reportUrl` を `https://beyond-unlimited-ranking.com/`・`https://beyond-unlimited-ranking.com/report` に書き換える。
-4. いつも通り `npm run deploy:cloudflare` で公開する。`site.json` の `siteUrl` が workers.dev 以外なら、そのドメインを `CF_CUSTOM_DOMAIN` として自動で使う（明示しても同じ）。
+3. 次を1回実行する（ドメインが有効か確認→`site.json` を書き換え→公開→新URL・フォーム・旧URLからの転送を確認。公開に失敗したら `site.json` を戻す）：
+   ```sh
+   bash scripts/switch-domain.sh beyond-unlimited-ranking.com
+   ```
+   終わったら `site.json` と生成物をcommitする。
+4. 以後はいつも通り `npm run deploy:cloudflare` で公開する。`site.json` の `siteUrl` が workers.dev 以外なら、そのドメインを `CF_CUSTOM_DOMAIN` として自動で使う（明示しても同じ）。
    ドメインがCloudflareで有効でない場合は公開前に止まる。
