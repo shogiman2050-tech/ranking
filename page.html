@@ -302,7 +302,7 @@ function applyTheme(classic){document.documentElement.classList.toggle('classic'
 <section class="panel" aria-labelledby="rankingTitle"><h2 id="rankingTitle">プレイヤー別ランキング</h2><div class="conditions"><strong>達成条件</strong><div class="toolbar">
 <label class="field"><span>順位：N位以内</span><input id="rankThreshold" type="number" min="1" step="1" value="10"></label>
 <label class="field"><span>CR：X以上</span><input id="crThreshold" type="number" min="1850" step="1" value="1900"></label>
-<label class="field"><span>絞り込み</span><select id="matchFilter"><option value="all">全プレイヤー</option><option value="rank">順位条件を達成</option><option value="cr">CR条件を達成</option><option value="both">両方を同時に達成</option></select></label>
+<label class="field"><span>絞り込み</span><select id="matchFilter"><option value="all">全プレイヤー</option><option value="rank">順位条件を達成</option><option value="cr">CR条件を達成</option></select></label>
 </div></div>
 <div class="sortrow"><span class="sortlabel">並べ替え</span><div class="sortbar" id="sortbar" role="group" aria-label="並べ替えの基準"></div><input type="hidden" id="sort" value="cr"></div>
 <p class="small">全ビヨ＝同じ期間（前半・後半）に7クラスすべてでビヨンド到達。期間の範囲だけを反映し、クラスの絞り込みには左右されません。順位は並べ替えの基準が同じなら同順位です。</p>
@@ -351,7 +351,7 @@ $('#coverage').textContent=`対象：${SEASON_ORDER[0].replace(' ','')}から${S
 
 // URLの状態 ⇔ 画面
 const PARAMS={from:'fromSeason',to:'toSeason',class:'classFilter',q:'search',n:'rankThreshold',x:'crThreshold',filter:'matchFilter',sort:'sort',model:'model',avg:'averageSort'};
-function loadURL(){const u=new URLSearchParams(location.search);for(const[k,id]of Object.entries(PARAMS)){if(!u.has(k))continue;const el=$('#'+id),v=u.get(k);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===v))continue;if(id==='sort'&&!['cr','count','fullCount','bestRank','classes','rankHits','crHits','bothHits'].includes(v))continue;if(id==='model'&&!['relax','inverse','log'].includes(v))continue;el.value=v}if(u.has('p'))active=u.get('p')}
+function loadURL(){const u=new URLSearchParams(location.search);for(const[k,id]of Object.entries(PARAMS)){if(!u.has(k))continue;const el=$('#'+id),v=u.get(k);if(el.tagName==='SELECT'&&![...el.options].some(o=>o.value===v))continue;if(id==='sort'&&!['cr','count','fullCount','bestRank','classes','rankHits','crHits'].includes(v))continue;if(id==='model'&&!['relax','inverse','log'].includes(v))continue;el.value=v}if(u.has('p'))active=u.get('p')}
 function saveURL(){const u=new URLSearchParams();for(const[k,id]of Object.entries(PARAMS)){const el=$('#'+id),def=el.dataset.default;if(el.value!==def&&el.value!=='')u.set(k,el.value)}if(active)u.set('p',active);const qs=u.toString();try{history.replaceState(null,'',qs?'?'+qs:location.pathname)}catch(e){}}
 for(const id of Object.values(PARAMS))$('#'+id).dataset.default=$('#'+id).value;
 
@@ -380,23 +380,23 @@ function syncSortChips(n,x){
 }
 function render(){const rows=scoped(),{n,x}=thresholds(),q=norm($('#search').value.trim()),filter=$('#matchFilter').value,sort=$('#sort').value;
  $('#recordCount').textContent=rows.length.toLocaleString('ja-JP');$('#playerCount').textContent=new Set(rows.map(pkey)).size.toLocaleString('ja-JP');$('#topCR').textContent=rows.length?Math.max(...rows.map(r=>r.cr)):'—';
- const metrics=[['cr','最高CR',p=>p.max,p=>p.max],['count','ビヨンド数',p=>p.count,p=>p.count],['fullCount','全ビヨ',p=>p.fullPeriods.length,p=>p.fullPeriods.length],['bestRank','最高順位',p=>rankText(p.bestRank),p=>-p.bestRank],['classes','到達クラス',p=>p.classes.size,p=>p.classes.size],['rankHits',n+'位以内',p=>p.rankHits,p=>p.rankHits],['crHits','CR'+x+'+',p=>p.crHits,p=>p.crHits],['bothHits','両方達成',p=>p.bothHits,p=>p.bothHits]];
+ const metrics=[['cr','最高CR',p=>p.max,p=>p.max],['count','ビヨンド数',p=>p.count,p=>p.count],['fullCount','全ビヨ',p=>p.fullPeriods.length,p=>p.fullPeriods.length],['bestRank','最高順位',p=>rankText(p.bestRank),p=>-p.bestRank],['classes','到達クラス',p=>p.classes.size,p=>p.classes.size],['rankHits',n+'位以内',p=>p.rankHits,p=>p.rankHits],['crHits','CR'+x+'+',p=>p.crHits,p=>p.crHits]];
  const primary=metrics.find(m=>m[0]===sort)||metrics[0],cols=metrics;
  $('#sortbar').innerHTML=metrics.map(m=>`<button type="button" class="chip" data-sort="${m[0]}" aria-pressed="${m===primary}">${escapeHTML(m[1])}</button>`).join('');
  $('#ranking thead tr').innerHTML='<th>順位</th><th>プレイヤー</th>'+cols.map(m=>{const on=m===primary;return `<th class="num sortable${on?' active':''}" aria-sort="${on?(sort==='bestRank'?'ascending':'descending'):'none'}"><button type="button" data-sort="${m[0]}">${escapeHTML(m[1])}<span class="arrow" aria-hidden="true">▼</span></button></th>`}).join('')+'<th>全ビヨ達成環境</th>';
  let players=summarize(rows,n,x,fullBeyondPeriods());
  if(q)players=players.filter(p=>[...p.search].some(s=>s.includes(q)));
- if(filter==='rank')players=players.filter(p=>p.rankHits);if(filter==='cr')players=players.filter(p=>p.crHits);if(filter==='both')players=players.filter(p=>p.bothHits);
+ if(filter==='rank')players=players.filter(p=>p.rankHits);if(filter==='cr')players=players.filter(p=>p.crHits);
  const score=primary[3],tie=sort==='cr'?(p=>p.count):(p=>p.max);
 players.sort((a,b)=>diff(score(b),score(a))||diff(tie(b),tie(a))||a.name.localeCompare(b.name,'ja'));
  // 同順位（基準の値が同じなら同じ順位：1,1,3…）
  const scores=players.map(score).sort((a,b)=>diff(b,a)),firstAt=new Map();scores.forEach((v,i)=>{if(!firstAt.has(v))firstAt.set(v,i+1)});players.forEach(p=>p.place=firstAt.get(score(p)));
  $('#caption').textContent=Number($('#fromSeason').value)>Number($('#toSeason').value)?'開始期間が終了期間より後です。期間を選び直してください。':`該当 ${players.length} 人。名前を押すと、環境ごとの記録を表示します。`;
- $('#ranking tbody').innerHTML=players.length?players.slice(0,limit).map(p=>`<tr><td class="order">${p.place}</td><td class="player-cell"><button class="name" type="button" data-key="${escapeHTML(encodeURIComponent(p.key))}">${escapeHTML(p.name)}</button></td>${cols.map(m=>`<td class="num${m===primary?' primary':''}" data-label="${escapeHTML(m[1])}">${escapeHTML(m[2](p))}</td>`).join('')}<td class="full-periods" data-label="全ビヨ達成環境">${p.fullPeriods.length?p.fullPeriods.map(s=>`<span class="pchip" title="${escapeHTML(s)}"><span class="pc-s">${escapeHTML(environmentOf(s).replace(/[・ ].*$/,'').slice(0,3)+periodOf(s).slice(0,1))}</span><span class="pc-l">${escapeHTML(s)}</span></span>`).join(''):'—'}</td></tr>`).join(''):'<tr><td class="empty" colspan="11">該当するプレイヤーがいません。</td></tr>';
+ $('#ranking tbody').innerHTML=players.length?players.slice(0,limit).map(p=>`<tr><td class="order">${p.place}</td><td class="player-cell"><button class="name" type="button" data-key="${escapeHTML(encodeURIComponent(p.key))}">${escapeHTML(p.name)}</button></td>${cols.map(m=>`<td class="num${m===primary?' primary':''}" data-label="${escapeHTML(m[1])}">${escapeHTML(m[2](p))}</td>`).join('')}<td class="full-periods" data-label="全ビヨ達成環境">${p.fullPeriods.length?p.fullPeriods.map(s=>`<span class="pchip" title="${escapeHTML(s)}"><span class="pc-s">${escapeHTML(environmentOf(s).replace(/[・ ].*$/,'').slice(0,3)+periodOf(s).slice(0,1))}</span><span class="pc-l">${escapeHTML(s)}</span></span>`).join(''):'—'}</td></tr>`).join(''):'<tr><td class="empty" colspan="10">該当するプレイヤーがいません。</td></tr>';
  const rest=players.length-limit;$('#more').hidden=rest<=0;$('#more').textContent=`さらに${Math.min(PAGE,rest)}人を表示（残り${rest}人）`;
  const selected=players.find(p=>p.key===active);
  if(!selected){$('#details').hidden=true}else{const p=selected;$('#details').hidden=false;$('#detailTitle').textContent=p.name+' の記録';
-  $('#detailStats').innerHTML=[`ビヨンド ${p.count}回`,`全ビヨ ${p.fullPeriods.length}回`,`最高CR ${p.max}`,`最高順位 ${rankText(p.bestRank)}`,`${n}位以内 ${p.rankHits}回`,`CR${x}以上 ${p.crHits}回`,`両方 ${p.bothHits}回`].map(t=>`<span>${escapeHTML(t)}</span>`).join('');
+  $('#detailStats').innerHTML=[`ビヨンド ${p.count}回`,`全ビヨ ${p.fullPeriods.length}回`,`最高CR ${p.max}`,`最高順位 ${rankText(p.bestRank)}`,`${n}位以内 ${p.rankHits}回`,`CR${x}以上 ${p.crHits}回`].map(t=>`<span>${escapeHTML(t)}</span>`).join('');
   $('#fullBeyondPeriods').textContent='全ビヨ達成：'+(p.fullPeriods.map(s=>environmentOf(s)+' '+periodOf(s)).join('、')||'なし');
   $('#detailRows').innerHTML=p.rows.slice().sort((a,b)=>SEASON_ORDER.indexOf(a.season)-SEASON_ORDER.indexOf(b.season)||CLASS_ORDER.indexOf(a.className)-CLASS_ORDER.indexOf(b.className)).map(r=>{const rh=rankHit(r,n),ch=r.cr>=x;return `<tr><td>${escapeHTML(environmentOf(r.season))}</td><td>${periodOf(r.season)}</td><td>${escapeHTML(r.className)}${r.rawName?`<span class="raw">表記：${escapeHTML(r.rawName)}</span>`:''}</td><td class="num">${r.cr}</td><td class="num">${rankText(r.rank)}</td><td>${rh&&ch?'両方':rh?'順位のみ':ch?'CRのみ':'—'}</td></tr>`}).join('')}
  const averages=new Map();for(const r of rows){const k=r.season+'\u001f'+r.className,v=averages.get(k)||{season:r.season,cls:r.className,count:0,sum:0,max:0};v.count++;v.sum+=r.cr;v.max=Math.max(v.max,r.cr);averages.set(k,v)}
